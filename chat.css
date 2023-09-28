@@ -1,0 +1,76 @@
+body {
+    height: 400vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.chat {
+    display: flex; 
+    padding:1px; 
+    border-radius: 100px;
+    background-color: #E6F7FF;
+    border: none;
+    align-items: center;
+}
+
+.chatContainer {
+
+    display: flex;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bottom {
+    position: fixed;
+    height: auto;
+    bottom: 0;
+    width: 100%;
+}
+
+.thumb-img {
+    width:56px; 
+    height: 56px;
+    z-index: 100;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+
+.chatLabel {
+    display: block;
+    padding: 0 1rem 0 3rem;
+    font-weight: 600;
+    
+}
+
+.exitChat {
+    display: block;
+    background: none;
+    position: absolute;
+    left: .5rem;
+    border: none;
+    border-radius: 100px;
+}
+
+
+/* Animations */
+
+
+
+/* Sticky */
+.sticky {
+    position: fixed;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    background-color: #ededed;
+    padding: 1rem;
+}
+
+.hidden {
+    display: none;
+}
