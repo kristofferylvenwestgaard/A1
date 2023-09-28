@@ -21,7 +21,7 @@ const handleSticky = () => {
     let pos = false;
     //console.log(scroll);
 
-    if(scroll > 2000 ) {
+    if(scroll > 1000 ) {
         pos = true;
     } else {
         pos = false;
