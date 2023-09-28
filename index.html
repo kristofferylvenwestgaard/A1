@@ -14,18 +14,18 @@
             <button style="background: #1B6613; color: white; font-size: 16px; font-weight: 700; text-align: center; padding: 0 2rem; display: inline-block; word-break: break-word; line-height: 44px; border-radius:4px; border: none">Kjøp reseptvarer</button>
         </div>
     </div>
-
-
-
-
     <div class="bottom">
         <div class="chatContainer">
-            <button id="quit" class="exitChat btn">
-                <img class="icon16 btn" src="img/ic-exit.svg">
-            </button>
-            <button id="giosg-bubble" class="chat btn" onclick="window.location.href=`https://apotek1.no`">
-                <label id="bubbleLabel" class="chatLabel btn">Snakk med en farmasøyt</label>
-                <img class="thumb-img btn" src="img/thumb.png" />
+            <div class="chat">
+                <button id="quit" class="exitChat btn">
+                    <img class="icon16 btn" src="img/ic-exit.svg" />
+                </button>
+                <button id="bubbleLabel" class="btn chatLabel" onclick="window.location.href=`https://apotek1.no`">
+                    Snakk med en farmasøyt
+                </button>
+            </div>
+            <button class="btn btn-img" onclick="window.location.href=`https://apotek1.no`">
+                <img class="thumb" src="img/thumb.png" />
             </button>
         </div>
         <div id="sticky" class="sticky hidden">

@@ -1,13 +1,17 @@
-const bubble = document.getElementById("giosg-bubble");
 const bubbleLabel = document.getElementById("bubbleLabel");
 const exitBubble = document.getElementById("quit");
 const sticky = document.querySelector(".sticky");
 const chatContainer = document.querySelector(".chatContainer");
-
+const chat = document.querySelector(".chat");
+let stickyBubble = false;
 
 const handleChatBubble = () => {
-    bubbleLabel.classList.toggle("hidden");
-    exitBubble.classList.toggle("hidden");
+    bubbleLabel.classList.remove("hidden");
+    exitBubble.classList.remove("hidden");
+    chat.classList.add("chatInteraction");
+
+    setTimeout(() => {chat.classList.add("hidden")}, "400");
+
     //console.log(bubbleLabel.classList.contains("hidden"));
 }
 
@@ -26,10 +30,10 @@ const handleSticky = () => {
     } else {
         pos = false;
     }
-    if(pos) {
+    if(pos && !stickyBubble) {
         sticky.classList.remove("hidden");
         handleBubbleOnStickyBottom();
-    } else {
+    } else if(!pos && stickyBubble){
         sticky.classList.add("hidden");
         handleBubbleOnStickyBottom();
     }
@@ -39,13 +43,15 @@ window.addEventListener("scroll", handleSticky);
 
 
 //HandleBubble
-
 const handleBubbleOnStickyBottom = () => {
-    if(!sticky.classList.contains("hidden")) {
+    console.log(stickyBubble);
+    if(!stickyBubble) {
+        stickyBubble = true;
         //console.log(sticky.offsetHeight);
         let totalBottom = sticky.offsetHeight + 16;
         chatContainer.style.bottom = `${totalBottom}px`;
     } else {
+        stickyBubble = false;
         //console.log(sticky.offsetHeight);
         chatContainer.style.bottom = `1rem`;
     }
