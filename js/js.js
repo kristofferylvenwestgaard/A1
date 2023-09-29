@@ -3,19 +3,35 @@ const exitBubble = document.getElementById("quit");
 const sticky = document.querySelector(".sticky");
 const chatContainer = document.querySelector(".chatContainer");
 const chat = document.querySelector(".chat");
+const buttonImg = document.querySelector(".btn-img");
+const chatModal = document.querySelector(".chatModal");
+const body = document.querySelector("body");
+const exitModal = document.querySelector(".exitModal");
 let stickyBubble = false;
+let bodyOverflow = true;
 
 const handleChatBubble = () => {
-    bubbleLabel.classList.remove("hidden");
-    exitBubble.classList.remove("hidden");
     chat.classList.add("chatInteraction");
-
     setTimeout(() => {chat.classList.add("hidden")}, "400");
 
     //console.log(bubbleLabel.classList.contains("hidden"));
 }
 
+const showHideChatModal = () => {
+    chatModal.classList.toggle("hidden");
+    if(bodyOverflow) {
+        body.style.overflow = "hidden";
+        bodyOverflow = false;
+    } else {
+        body.style.overflow = "auto";
+        bodyOverflow = true;
+    }
+}
+
 exitBubble.addEventListener("click", handleChatBubble);
+buttonImg.addEventListener("click", showHideChatModal);
+bubbleLabel.addEventListener("click", showHideChatModal);
+exitModal.addEventListener("click", showHideChatModal);
 
 
 //Sticky bottom

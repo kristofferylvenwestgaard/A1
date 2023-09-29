@@ -1,0 +1,36 @@
+body {
+    height: 400vh;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 150%;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+.cta {
+    padding: 1rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.primary {
+    background-color: #1b6613; 
+}
+
+.secondary {
+    background-color: #0d2880;
+}
