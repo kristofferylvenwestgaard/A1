@@ -82,22 +82,23 @@
     flex-direction: column;
     justify-content: center;
     position: fixed;
-    inset: 0 0 0 0;
-    background-color: #F0F8FD;
+    width: 400px;
+    right: 1rem;
+    bottom: 1rem;
+    background-color: #FFF;
     z-index: 1000;
     padding: 2rem;
+    border-radius: 6px;
+    box-shadow: 20px 0px 20px #ededed;
 } 
 
-/* Sticky */
-.sticky {
-    position: fixed;
-    bottom: 0;
-    height: auto;
-    width: 100%;
-    background-color: #ededed;
-    padding: 1rem;
-}
-
-.hidden {
-    display: none;
+@media only screen and (max-width: 600px) {
+    .chatModal {
+        width: auto;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+    }
 }

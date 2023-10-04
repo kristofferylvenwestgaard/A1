@@ -5,6 +5,12 @@ body {
     box-sizing: border-box;
 }
 
+.container {
+    max-width: 1260px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 p {
     font-size: 1rem;
     line-height: 150%;
@@ -33,4 +39,18 @@ h2 {
 
 .secondary {
     background-color: #0d2880;
+}
+
+/* Sticky */
+.sticky {
+    position: fixed;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    background-color: #ededed;
+    padding: 1rem;
+}
+
+.hidden {
+    display: none;
 }
