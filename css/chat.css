@@ -55,7 +55,8 @@
 .chatLabel {
     display: block;
     padding: 0 1.25rem 0 3rem;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: .85rem;
 }
 
 .exitChat {
@@ -71,26 +72,48 @@
     right: 1rem;
     left: auto;
     top: 1rem;
-    padding: .5rem .75rem;
-    border-radius: 6px;
-    border: 1px solid #C2E5F8;
+    padding: .5rem;
 }
 
 /* Chat Modal */
 .chatModal {
+    background-image: url("../img/farma.png");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     position: fixed;
     width: 400px;
     right: 1rem;
     bottom: 1rem;
     background-color: #FFF;
     z-index: 1000;
-    padding: 2rem;
     border-radius: 6px;
     box-shadow: 20px 0px 20px #ededed;
-} 
+}
+
+.modalContent {
+    padding: 2rem;
+}
+
+.modalChunk {
+    padding: 1rem;
+    background-color: #E6F7FF;
+    border-radius: 6px;
+    margin: 0 0 1rem 0;
+}
+
+.modalHeading {
+    width:85%;
+    line-height: 150%;
+    margin: 0;
+}
+
+.modalHeadBlock{
+    padding: 2rem;
+    border-bottom: 1px solid #d6d6d6;
+}
 
 @media only screen and (max-width: 600px) {
     .chatModal {
@@ -101,4 +124,13 @@
         right: 0;
         border-radius: 0;
     }
+
+    .modalHeadBlock{
+        padding: 1rem;
+    }
+
+    .modalContent {
+        padding: 1rem;
+    }
+    
 }

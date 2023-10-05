@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="css/chat.css" >
     <link rel="stylesheet" href="css/banner.css" >
     <link rel="stylesheet" href="css/main.css" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head> 
 <body>
     <div class="row hand-bg" style="text-align: left; display: flex; position: relative; max-width: 1260px; margin: 0 auto; background-color: #F3FCF2; margin-bottom: 4rem;">
@@ -30,15 +33,25 @@
             </button>
         </div>
         <div id="chatModal" class="chatModal hidden">
-            <button class="exitChat exitModal"><img class="icon16 btn" src="img/ic-exit.svg" /></button>
-            <h2>Kundeservice</h2>
-            <p>Har du spørsmål om ordre eller levering? <br>
-            Ta gjerne en titt på våre svar til <a href="https://www.apotek1.no/kundesenter/frakt-og-levering">ofte stilte spørsmål</a> rundt levering og kjøp.</p>
-            <p>Har du spørsmål om resept må du først logge inn med ID-porten.</p>
-            <button class="cta fullwidth secondary">Logg inn med BankID</button>
-            <h3>Snakk med en farmasøyt</h3>
-            <p>Vi sitter klar til å bistå deg med svar på dine spørsmål.</p>
-            <button class="cta fullwidth primary">Chat med farmasøyt</button>
+            <div class="modalHeadBlock">
+                <button class="exitChat exitModal"><img class="icon16 btn" src="img/ic-exit.svg" /></button>
+                <h2 class="modalHeading">Chat med en apotekansatt</h2>
+            </div>
+            <div class="modalContent">
+                <div class="modalChunk">
+                    <h3>Spørsmål om din bestilling?</h3>
+                    <button class="cta fullwidth secondary">Se svar på ofte stilte spørsmål</button>
+                </div>
+                <div class="modalChunk">
+                    <h3>Spørsmål om resept?</h3>
+                    <p>Har du spørsmål om resept må du først logge inn med ID-porten.</p>
+                    <button class="cta fullwidth secondary">Logg inn med BankID</button>
+                </div>
+                <div class="modalChunk">
+                    <h3>Lurer du på noe annet?</h3>
+                    <button class="cta fullwidth secondary">Chat med farmasøyt</button>
+                </div>
+            </div>
         </div>
         <div id="sticky" class="sticky hidden">
             <div class="container">
