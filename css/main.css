@@ -33,11 +33,23 @@ button {
 }
 
 .cta {
-    padding: 1rem;
+    display: flex;
+    gap: .5rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: .65rem 1rem;
     border: none;
     border-radius: 6px;
     color: #fff;
     margin-top: .5rem;
+}
+
+.secondaryOutline {
+    border: 2px solid #0d2880;
+    background-color: transparent;
+    color: #0d2880;
+    max-height: 44.5px;
 }
 
 .fullwidth {

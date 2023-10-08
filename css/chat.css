@@ -69,9 +69,9 @@
 }
 
 .exitModal {
-    right: 1rem;
+    right: 1.8rem;
     left: auto;
-    top: 1rem;
+    top: 1.8rem;
     padding: .5rem;
 }
 
@@ -83,6 +83,7 @@
     background-size: 70%;
     display: flex;
     flex-direction: column;
+    min-height: 900px;
     position: fixed;
     width: 400px;
     right: 1rem;
@@ -90,7 +91,8 @@
     background-color: #FFF;
     z-index: 1000;
     border-radius: 6px;
-    box-shadow: 20px 0px 20px #ededed;
+    box-shadow: 5px 5px 20px 20px rgba(0, 0, 0, .035);
+    border: 1px solid #ededed;
 }
 
 .modalContent {
@@ -117,12 +119,18 @@
 
 @media only screen and (max-width: 600px) {
     .chatModal {
+        min-height: auto;
         width: auto;
         bottom: 0;
         top: 0;
         left: 0;
         right: 0;
         border-radius: 0;
+    }
+
+    .exitModal {
+        right: 1rem;
+        top: 1rem;
     }
 
     .modalHeadBlock{
@@ -133,4 +141,11 @@
         padding: 1rem;
     }
     
+}
+
+/* Hiding chatmodal background image on devices with height less than or equal to 800px */
+@media only screen and (max-height: 800px) {
+    .chatModal {
+        background-image: none;
+    }
 }

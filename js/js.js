@@ -19,7 +19,7 @@ const handleChatBubble = () => {
 
 const showHideChatModal = () => {
     chatModal.classList.toggle("hidden");
-    if(bodyOverflow) {
+    if(bodyOverflow && window.innerWidth <= 600) {
         body.style.overflow = "hidden";
         bodyOverflow = false;
     } else {
