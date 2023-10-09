@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head> 
 <body>
+    <!-- RX Banner -->
     <div class="row hand-bg" style="text-align: left; display: flex; position: relative; max-width: 1260px; margin: 0 auto; background-color: #F3FCF2; margin-bottom: 4rem;">
         <div class="content">
             <h2 class="bannerTitle" style="color: #292929; padding: 0; display: inline-grid; margin-block-start: 0;
@@ -19,7 +20,11 @@
             <button style="background: #1B6613; color: white; font-size: 16px; font-weight: 700; text-align: center; padding: 0 2rem; display: inline-block; word-break: break-word; line-height: 44px; border-radius:4px; border: none">Kjøp reseptvarer</button>
         </div>
     </div>
+
+    <!-- Chat bubble / modal working with sticky bottom -->
     <div class="bottom">
+
+        <!-- Chat bubble -->
         <div class="chatContainer">
             <div class="chat">
                 <button id="quit" class="exitChat btn">
@@ -33,6 +38,8 @@
                 <img class="thumb" src="img/thumb.png" />
             </button>
         </div>
+        
+        <!-- Chatmodal -->
         <div id="chatModal" class="chatModal hidden">
             <div class="modalHeadBlock">
                 <button class="exitChat exitModal"><img class="icon16 btn" src="img/ic-exit.svg" /></button>
@@ -54,6 +61,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- Sticky Bottom -->
         <div id="sticky" class="sticky hidden">
             <div class="container">
                 <h1>Dette er en test</h1>

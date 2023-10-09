@@ -10,6 +10,8 @@ const exitModal = document.querySelector(".exitModal");
 let stickyBubble = false;
 let bodyOverflow = true;
 
+
+
 const handleChatBubble = () => {
     chat.classList.add("chatInteraction");
     setTimeout(() => {chat.classList.add("hidden")}, "400");
@@ -35,7 +37,6 @@ exitModal.addEventListener("click", showHideChatModal);
 
 
 //Sticky bottom
-
 const handleSticky = () => {
     let scroll = window.scrollY;
     let pos = false;
