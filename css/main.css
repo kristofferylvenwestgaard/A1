@@ -16,7 +16,7 @@ body {
 p {
     font-size: 1rem;
     line-height: 150%;
-    margin: .5rem 0;
+    margin: .5rem 0 1rem 0;
 }
 
 h2 {
@@ -24,7 +24,8 @@ h2 {
 }
 
 h3 {
-    font-size: 1rem;
+    font-size: 1.25rem;
+    font-weight: 500;
     margin-top: 0;
 }
 
@@ -32,6 +33,14 @@ button {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: .85rem;
+}
+
+a {
+    color: #000;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .cta {
@@ -64,6 +73,14 @@ button {
 
 .secondary {
     background-color: #0d2880;
+}
+
+.lightGreen {
+    background-color: #F3FCF2;
+}
+
+.lightGrey {
+    background-color: #F7F7F8;
 }
 
 /* Sticky */
