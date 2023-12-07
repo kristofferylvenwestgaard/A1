@@ -13,6 +13,27 @@ body {
     margin: 0 auto;
 }
 
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.v-center {
+    align-items: center;
+}
+
+.gap-sm {
+    gap: .75rem;
+}
+
+.gap-md {
+    gap: 1rem;
+}
+
+
 p {
     font-size: 1rem;
     line-height: 150%;

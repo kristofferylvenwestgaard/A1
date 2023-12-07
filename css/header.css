@@ -1,0 +1,33 @@
+.header {
+    padding: .75rem 0;
+    background-color: #F0F8FD;
+}
+
+.menu {
+    display: flex;
+    gap: .5rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: .65rem 1rem;
+    border: solid 1px #C2E5F8;
+    border-radius: 6px;
+    color: #292929;
+    background-color: #F0F8FD;
+}
+
+.input-text {
+    border-radius: 6px;
+}
+
+.search {
+    padding: .65rem 1rem;
+    font-size: 1rem;
+    border: solid 1px #C2E5F8;
+    line-height: 24px;
+}
+
+.scrolledVisible {
+    position: fixed;
+    top: 0;
+}
