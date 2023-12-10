@@ -5,17 +5,20 @@ let revScroll = false;
 
 const headerScroll = () => {
     currentScroll = window.scrollY;
-    console.log(currentScroll);
-    if(!revScroll) {
+    //console.log(currentScroll);
+    if(previousScrollPos < currentScroll) {
         previousScrollPos = currentScroll;
-        console.log(previousScrollPos);
+        revScroll = false;   
+    }
+    if(!revScroll) {
+        header.classList.remove("scrolledVisible");
         if(currentScroll < previousScrollPos) {
             revScroll = true;
-            header.classList.add("scrolledVisible");
         }
+        console.log({previousScrollPos, currentScroll});
+    } else {
+        header.classList.add("scrolledVisible");
     }
-    revScroll = false;
-    previousScrollPos = 0;
 }
 
 
