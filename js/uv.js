@@ -56,6 +56,7 @@ const listUVResult = (obj, city) => {
     }
     //Create container for API call result
     container = document.createElement("div");
+    container.setAttribute("class", "uvResult")
     //Add container to main flow
     main.appendChild(container);
 
@@ -65,7 +66,8 @@ const listUVResult = (obj, city) => {
 
     //Add icon for weather forecast
     const icon = document.createElement("img");
-    icon.setAttribute("src", "img/ic_minside.svg");
+    icon.setAttribute("src", "img/sun.png");
+    icon.setAttribute("class", "weatherIcon");
     //Add icon to container
     container.appendChild(icon);
 

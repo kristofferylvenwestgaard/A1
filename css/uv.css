@@ -61,6 +61,17 @@
     background-color: #DFCBE9;
 }
 
+.uvResult {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0 0 0;
+    gap: 1.5rem;
+}
+
+.weatherIcon {
+    width: 72px;
+}
 
 @media only screen and (max-width: 600px) {
     .leftBlock {
