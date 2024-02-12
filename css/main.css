@@ -156,6 +156,7 @@ a:hover {
 
 .borderRadius {
     border-radius: 6px;
+    overflow: hidden;
 }
 
 .borderBlock {
@@ -164,6 +165,18 @@ a:hover {
     margin: 2rem 0;
     padding: 1.5rem;
     border: 1px solid #d6d6d6;
+}
+
+.noPadding {
+    padding: 0;
+}
+
+.noMargin {
+    margin: 0 !important;
+}
+
+.p-24 {
+    padding: 1.5rem;
 }
 
 .flex-1 {
@@ -196,6 +209,19 @@ td {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.label {
+    padding: .5rem;
+}
+
+.h-450 {
+    height: 450px;
+    overflow: hidden;
+}
+
+.mb-24 {
+    margin-bottom: 24px;
 }
 
 @media only screen and (max-width:600px) {

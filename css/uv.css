@@ -30,6 +30,10 @@
     /* margin-bottom: 3.5rem; */
 }
 
+.halfWidth {
+    width: 50%;
+}
+
 #uvIndex, #uvTitle {
     margin-bottom: 0;
     line-height: 140%;
@@ -72,6 +76,10 @@
 
 .weatherIcon {
     width: 72px;
+}
+
+.uvPic {
+    margin-top: -200px;
 }
 
 @media only screen and (max-width: 600px) {
