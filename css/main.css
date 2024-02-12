@@ -146,6 +146,12 @@ a:hover {
     color: #fff;
     border: none;
     font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btnForm:hover {
+    background-color: #264122;
 }
 
 .borderRadius {

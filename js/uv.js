@@ -5,13 +5,16 @@ let container = false;
 //HandleSubmit event on location UV Index form
 const submitSearch = async (e) => {
     e.preventDefault();
-    const city = form.search.value;
-    // console.log(city);
-    // const locKey = await getLocationKey(city);
-    // console.log(locKey);
-    // const uv = await getUV(locKey);
-    listUVResult("", city);
-    return;
+    try {
+        const city = form.search.value;
+        console.log(city);
+        const locKey = await getLocationKey(city);
+        console.log(locKey);
+        const uv = await getUV(locKey);
+        listUVResult(uv, city);
+    } catch (error) {
+       console.log(error);
+    }
 }
 
 form.addEventListener("submit", submitSearch)
@@ -34,17 +37,23 @@ const getLocationKey = async (searchTerm) => {
 
 //Get UV Index for location "c"
 const getUV = async (c) => {
-    const locationKey = c[0].key;
-    console.log(c[0].key);
-    const endpoint = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=bBILPj8ey0NS63jYGlCYzQQpqBt5ara9&language=no&details=true&metric=true`;
-    try{
-        const response = await fetch(endpoint);
-        if(response.ok) {
-            const result = await response.json();
-            return console.log(result);
+    let locationKey;
+    console.log(c);
+    if(c.length > 0) {
+        locationKey = c[0].Key;
+        console.log(locationKey);
+        const endpoint = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=bBILPj8ey0NS63jYGlCYzQQpqBt5ara9&language=no&details=true&metric=true`;
+        try{
+            const response = await fetch(endpoint);
+            if(response.ok) {
+                const result = await response.json();
+                return result;
+            }
+        } catch(err) {
+            throw new Error("Something failed");
         }
-    } catch(err) {
-        throw new Error("Something failed");
+    } else {
+        throw new Error("No location found");
     }
 }
 
@@ -75,12 +84,8 @@ const listUVResult = (obj, city) => {
     const uvIndex = document.createElement("h2");
     uvIndex.setAttribute("id", "uvIndex");
     //Add city search string to location h2
-    uvIndex.append("2 - Lav stråling");
+    uvIndex.append(obj.DailyForecasts[0].AirAndPollen[5].Value + " " + obj.DailyForecasts[0].AirAndPollen[5].Category );
 
     //Add location title to container
     container.appendChild(uvIndex);
-    
-    const test = document.getElementById("locTitle");
-    
-    console.log(test);
 }
