@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/chat.css" >
+    <link rel="stylesheet" href="css/banner.css" >
+    <link rel="stylesheet" href="css/main.css" >
+    <link rel="stylesheet" href="css/header.css"> 
+    <link rel="stylesheet" href="css/uv.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head> 
+<body>
+    <!-- A1 Header 
+    <section id="header" class="header">
+        <div class="container flex gap-md v-center">
+            <div class="logo">
+                <img src="./img/new-header-logo.svg" alt="Apotek 1 logo" />
+            </div>
+            <button class="menu"><img src="./img/ic-menu.svg">Meny</button>
+            <input class="search flex-1 input-text" type="text" name="search" placeholder="Søk blant 10 000 produkter og råd"></input>
+
+            <button class="menu"><img src="./img/ic-RX.svg">Mine resepter</button>
+            <button class="menu"><img src="./img/ic_minside.svg">Min side</button>
+            <button class="menu"><img src="./img/ic-menu.svg">Kasse</button>
+        </div>
+    </section>-->
+    <div id="main" class="container ">
+        <div class="innerContainer">
+            <h1>UV-varsel – sjekk strålingen hos deg</h1>
+            <p>Når sola er sterk bør du bruke solkrem og legge inn pauser i skyggen. Sjekk UV-varselet her for å se hvordan strålingen er i dag.</p>
+            <!-- UV Varsel -->
+            <div class="borderBlock borderRadius">
+                <h2>Se UV-varselet i ditt område</h2>
+                <div class="cols">
+                    <div class="leftBlock">
+                        <form class="uvForm" id="searchUV">
+                            <input class="input" type="text" name="search" placeholder="Søk etter sted" />
+                            <input class="btnForm" type="submit" name="submit" value="Se varsel" />
+                        </form>
+                        <!-- Løses med single blocks for hver index, i stedet for tabell -->
+                        <h2>Forklaring av UV-index</h2>
+                        
+                        <div class="borderBlock borderRadius">
+                            <span class="inline"><div class="dot green"></div>1-2</span>
+                            <p>Lav</p>
+                            <p>> 1 time</p>
+                            <p>Du kan trygt være ute uten solbeskyttelse.</p>
+                        </div>
+
+                        <table>
+                            <thead>
+                                <td>UV Index</td>
+                                <td>Nivå</td>
+                                <td>Tid før mulig hudskade</td>
+                                <td>Råd</td>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="inline"><div class="dot green"></div>1-2</span></td>
+                                    <td>Lav</td>
+                                    <td>> 1 time</td>
+                                    <td>Du kan trygt være ute uten solbeskyttelse.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="inline"><div class="dot yellow"></div>3-5</span></td>
+                                    <td>Moderat</td>
+                                    <td>30-40 min</td>
+                                    <td>Ta pauser fra solen. Klær, hatt og solbriller gir god beskyttelse, og ikke glem solkremen (helst faktor 30 eller mer).</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="inline"><div class="dot orange"></div>1-2</span></td>
+                                    <td>Høy</td>
+                                    <td>20 min</td>
+                                    <td>Ta pauser fra solen mellom klokka 12-15. Klær hatt og solbriller gir god solbeskyttelse. Bruk solkrem med høy faktor (minst faktor 30, gjerne mer).</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="inline"><div class="dot red"></div>8-10</span></td>
+                                    <td>Svært høy</td>
+                                    <td>15 min</td>
+                                    <td>Unngå solen mellom klokka 12-15 og søk skygge. Bruk klær, solhatt og solbriller. Bruk solkrem med høy faktor (minst faktor 30, gjerne 50 eller 50+).</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="inline"><div class="dot purple"></div>> 11</span></td>
+                                    <td>Ekstrem</td>
+                                    <td>< 10 min</td>
+                                    <td>Unngå solen mellom klokka 12-15 og søk skygge. Klær, solhatt og solbriller er absolutt nødvendig. Bruk solkrem med høy faktor (minst faktor 30, gjerne 50+).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="greyBlock" class="flex-1 greyBlock">
+                        <h3 id="uvTitle" class="textCenter">Søk etter ditt område for å se strålingsnivåene fra solen i dag.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--script src="js/js.js"></script>-->
+    <script src="js/uv.js"></script>
+    <!--<script src="js/header.js"></script>-->
+</body>
+</html> 
