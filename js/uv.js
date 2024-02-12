@@ -63,6 +63,12 @@ const listUVResult = (obj, city) => {
     let h3 = document.getElementById("uvTitle");
     h3.innerText = `UV-stråling rundt ${city}:`;
 
+    //Add icon for weather forecast
+    const icon = document.createElement("img");
+    icon.setAttribute("src", "img/ic_minside.svg");
+    //Add icon to container
+    container.appendChild(icon);
+
     //Add h2 heading to list out location name
     const uvIndex = document.createElement("h2");
     uvIndex.setAttribute("id", "uvIndex");
