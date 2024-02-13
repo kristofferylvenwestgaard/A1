@@ -30,6 +30,13 @@
     /* margin-bottom: 3.5rem; */
 }
 
+.rightBlock {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 1rem;
+}
+
 .halfWidth {
     width: 50%;
 }
@@ -96,6 +103,39 @@
     }
 
     .cols {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    .flex-reverse {
         flex-direction: column-reverse;
+    }
+
+    .h-450 {
+        height: auto;
+    }
+
+    .p-24 {
+        padding: 1rem;
+    }
+
+    .noPadding {
+        padding: 0 !important;
+    }
+
+    .uvPic {
+        margin-top: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .imgContainer {
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .halfWidth {
+        width: 100%;
     }
 }

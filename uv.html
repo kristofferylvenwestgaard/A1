@@ -33,7 +33,7 @@
             <!-- UV Varsel -->
             <div class="borderBlock borderRadius">
                 <h2>Se UV-varselet i ditt område</h2>
-                <div class="cols">
+                <div class="cols flex-reverse">
                     <div class="leftBlock">
                         <form class="uvForm" id="searchUV">
                             <input class="input" type="text" name="search" placeholder="Søk etter sted" />
@@ -46,65 +46,140 @@
                         <h3 id="uvTitle" class="textCenter">Søk etter ditt område for å se strålingsnivåene fra solen i dag.</h3>
                     </div>
                 </div>
-                <h2>Forklaring av UV-index</h2>
-                <div class="borderBlock noPadding borderRadius h-450">
-                    <div class="cols noMargin">
-                        <div class="leftBlock halfWidth">
-                            <img class="uvPic" src="img/sunset1.jpg" alt="sunset" />
-                        </div>
-                        <div class="flex-1 p-24">
-                            <h3>UV Indeks 0-2</h3>
-                            <p class="mb-24"><span class="label borderRadius purple">Lav stråling</span></p>
-                            <p>Med en lav UV-indeks på 0 til 2 er det liten risiko for å bli solbrent.
-                                Du bør likevel bruke dagkrem med solfaktor for å beskytte huden.
-                                Velg en solfaktor som er minst dobbelt så
-                                høy som UV-indeksen. Dette er imidlertid bare en generell
-                                anbefaling. Bruk alltid produkter som er tilpasset
-                                hudtypen din!</p>
-                        </div>
+            </div>
+
+
+            <h2 class="noMargin">Forklaring av UV-index</h2>
+            <div class="borderBlock noPadding borderRadius h-450">
+                <div class="cols noMargin">
+                    <div class="leftBlock halfWidth imgContainer">
+                        <img class="uvPic" src="img/sunset1.jpg" alt="sunset" />
+                    </div>
+                    <div class="flex-1 p-24">
+                        <h3>UV Indeks 0-2</h3>
+                        <p class="mb-24"><span class="label borderRadius purple">Lav stråling</span></p>
+                        <p>Med en lav UV-indeks på 0 til 2 er det liten risiko for å bli solbrent.
+                            Du bør likevel bruke dagkrem med solfaktor for å beskytte huden.
+                            Velg en solfaktor som er minst dobbelt så
+                            høy som UV-indeksen. Dette er imidlertid bare en generell
+                            anbefaling. Bruk alltid produkter som er tilpasset
+                            hudtypen din!
+                        </p>
                     </div>
                 </div>
-                <table>
-                    <thead>
-                        <td>UV Index</td>
-                        <td>Nivå</td>
-                        <td>Tid før mulig hudskade</td>
-                        <td>Råd</td>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="inline"><div class="dot green"></div>1-2</span></td>
-                            <td>Lav</td>
-                            <td>> 1 time</td>
-                            <td>Du kan trygt være ute uten solbeskyttelse.</td>
-                        </tr>
-                        <tr>
-                            <td><span class="inline"><div class="dot yellow"></div>3-5</span></td>
-                            <td>Moderat</td>
-                            <td>30-40 min</td>
-                            <td>Ta pauser fra solen. Klær, hatt og solbriller gir god beskyttelse, og ikke glem solkremen (helst faktor 30 eller mer).</td>
-                        </tr>
-                        <tr>
-                            <td><span class="inline"><div class="dot orange"></div>1-2</span></td>
-                            <td>Høy</td>
-                            <td>20 min</td>
-                            <td>Ta pauser fra solen mellom klokka 12-15. Klær hatt og solbriller gir god solbeskyttelse. Bruk solkrem med høy faktor (minst faktor 30, gjerne mer).</td>
-                        </tr>
-                        <tr>
-                            <td><span class="inline"><div class="dot red"></div>8-10</span></td>
-                            <td>Svært høy</td>
-                            <td>15 min</td>
-                            <td>Unngå solen mellom klokka 12-15 og søk skygge. Bruk klær, solhatt og solbriller. Bruk solkrem med høy faktor (minst faktor 30, gjerne 50 eller 50+).</td>
-                        </tr>
-                        <tr>
-                            <td><span class="inline"><div class="dot purple"></div>> 11</span></td>
-                            <td>Ekstrem</td>
-                            <td>< 10 min</td>
-                            <td>Unngå solen mellom klokka 12-15 og søk skygge. Klær, solhatt og solbriller er absolutt nødvendig. Bruk solkrem med høy faktor (minst faktor 30, gjerne 50+).</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
+            <div class="borderBlock noPadding borderRadius h-450">
+                <div class="cols noMargin flex-reverse">
+                    <div class="flex-1 p-24">
+                        <h3>UV Indeks 3-5</h3>
+                        <p class="mb-24"><span class="label borderRadius yellow">Middels stråling</span></p>
+                        <p>Med en middels UV-indeks på 3 til 5 anbefales det å bruke klær som beskytter (skjorte, T-skjorte, bluse). Solbriller og solhatt kan også beskytte deg mot UV-stråling.
+                            I tillegg bør du beskytte huden ved å påføre solkrem som er tilpasset nettopp din hudtype.
+                            Velg en solfaktor som er minst dobbelt så
+                            høy som UV-indeksen.
+                        </p>
+                    </div>
+                    <div class="rightBlock halfWidth imgContainer">
+                        <img class="uvPic" src="img/sunset2.jpg" alt="sunset" />
+                    </div>
+                </div>
+            </div>
+            <div class="borderBlock noPadding borderRadius h-450">
+                <div class="cols noMargin">
+                    <div class="leftBlock halfWidth imgContainer">
+                        <img src="img/sunset3.jpg" alt="sunset" />
+                    </div>
+                    <div class="flex-1 p-24">
+                        <h3>UV Indeks 6-7</h3>
+                        <p class="mb-24"><span class="label borderRadius green">Høy stråling</span></p>
+                        <p>Med en høy UV-indeks på 6 til 7 anbefales det å dekke til
+                            overkroppen. Husk også solbriller og bruk solhatt som beskytter den
+                            sensitive hodebunnen. Det anbefales også å bruke leppepomade med solfaktor.
+                            I tillegg må huden beskyttes med en solkrem som er
+                            tilpasset hudtypen din. Velg en solfaktor som er minst dobbelt så høy som UV-indeksen, og som dessuten er tilpasset nettopp din hudtype. Du bør ikke oppholde deg for lenge i solen, men veksle mellom sol og skygge, spesielt midt på dagen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="borderBlock noPadding borderRadius h-450">
+                <div class="cols noMargin flex-reverse">
+                    <div class="flex-1 p-24">
+                        <h3>UV Indeks 8-10</h3>
+                        <p class="mb-24"><span class="label borderRadius orange">Svært høy stråling</span></p>
+                        <p>Du bør ikke oppholde deg utendørs i timene mellom 11:00 og 15:00 hvis
+                            det er en veldig høy UV-indeks på 8 til 10.
+                            Selv i skyggen bør du beskytte huden ved
+                            å bruke langermet overdel og solbeskyttende plagg.
+                            Husk også å dekke til bena, bruke solbriller med UV-beskyttelse
+                            og velge en solhatt som også beskytter den sensitive huden i nakken.
+                            Velg en solkrem som er tilpasset hudtypen din,
+                            og med ekstra høy solfaktor.
+                        </p>
+                    </div>
+                    <div class="rightBlock halfWidth imgContainer">
+                        <img class="uvPic" src="img/sunset4.jpg" alt="sunset" />
+                    </div>
+                </div>
+            </div>
+            <div class="borderBlock noPadding borderRadius h-450">
+                <div class="cols noMargin">
+                    <div class="leftBlock halfWidth imgContainer">
+                        <img class="uvPic" src="img/sunset5.jpg" alt="sunset" />
+                    </div>
+                    <div class="flex-1 p-24">
+                        <h3>UV Indeks 11+</h3>
+                        <p class="mb-24"><span class="label borderRadius red">Ekstrem stråling</span></p>
+                        <p>Med en ekstremt høy UV-indeks på 11, 12 og høyere er det
+                            viktig å unngå solen og være innendørs i timene midt på dagen.
+                            Oppholder du deg utendørs bør du være mest mulig i skyggen.
+                            Langbukse og langermet, solbeskyttende klær er nødvendig, og det er også solbriller med god UV-beskyttelse og hodeplagg som beskytter nakken.
+                            Selv når du oppholder deg i skyggen er det viktig å bruke solkrem
+                            med en svært høy solfaktor som er tilpasset
+                            hudtypen din.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--<table>
+                <thead>
+                    <td>UV Index</td>
+                    <td>Nivå</td>
+                    <td>Tid før mulig hudskade</td>
+                    <td>Råd</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="inline"><div class="dot green"></div>1-2</span></td>
+                        <td>Lav</td>
+                        <td>> 1 time</td>
+                        <td>Du kan trygt være ute uten solbeskyttelse.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="inline"><div class="dot yellow"></div>3-5</span></td>
+                        <td>Moderat</td>
+                        <td>30-40 min</td>
+                        <td>Ta pauser fra solen. Klær, hatt og solbriller gir god beskyttelse, og ikke glem solkremen (helst faktor 30 eller mer).</td>
+                    </tr>
+                    <tr>
+                        <td><span class="inline"><div class="dot orange"></div>1-2</span></td>
+                        <td>Høy</td>
+                        <td>20 min</td>
+                        <td>Ta pauser fra solen mellom klokka 12-15. Klær hatt og solbriller gir god solbeskyttelse. Bruk solkrem med høy faktor (minst faktor 30, gjerne mer).</td>
+                    </tr>
+                    <tr>
+                        <td><span class="inline"><div class="dot red"></div>8-10</span></td>
+                        <td>Svært høy</td>
+                        <td>15 min</td>
+                        <td>Unngå solen mellom klokka 12-15 og søk skygge. Bruk klær, solhatt og solbriller. Bruk solkrem med høy faktor (minst faktor 30, gjerne 50 eller 50+).</td>
+                    </tr>
+                    <tr>
+                        <td><span class="inline"><div class="dot purple"></div>> 11</span></td>
+                        <td>Ekstrem</td>
+                        <td>< 10 min</td>
+                        <td>Unngå solen mellom klokka 12-15 og søk skygge. Klær, solhatt og solbriller er absolutt nødvendig. Bruk solkrem med høy faktor (minst faktor 30, gjerne 50+).</td>
+                    </tr>
+                </tbody>
+            </table>-->
         </div>
     </div>
     <!--script src="js/js.js"></script>-->
