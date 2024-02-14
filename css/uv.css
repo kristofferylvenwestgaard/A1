@@ -12,7 +12,7 @@
     background-color: #F3FCF2;
     padding: 1.5rem;
     border-radius: 6px;
-    height: 200px;
+    min-height: 200px;
 }
 
 .uvForm {
@@ -89,6 +89,12 @@
     margin-top: -200px;
 }
 
+.uvLink {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 0;
+}
+
 @media only screen and (max-width: 600px) {
     .leftBlock {
         width: 100%;
@@ -99,7 +105,7 @@
     .uvForm {
         width: 100%;
         flex-direction: column;
-        margin: 0 0 1.5rem 0;
+        margin: 0 0 0 0;
     }
 
     .cols {
@@ -111,7 +117,7 @@
         flex-direction: column-reverse;
     }
 
-    .h-450 {
+    .h-370 {
         height: auto;
     }
 

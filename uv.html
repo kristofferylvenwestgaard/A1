@@ -31,10 +31,10 @@
             <h1>UV-varsel – sjekk strålingen hos deg</h1>
             <p>Når sola er sterk bør du bruke solkrem og legge inn pauser i skyggen. Sjekk UV-varselet her for å se hvordan strålingen er i dag.</p>
             <!-- UV Varsel -->
-            <div class="borderBlock borderRadius">
-                <h2>Se UV-varselet i ditt område</h2>
-                <div class="cols flex-reverse">
+            <div class="borderBlock borderRadius mb-64">
+                <div class="cols flex-reverse noMargin">
                     <div class="leftBlock">
+                        <h2>Se UV-varselet i ditt område</h2>
                         <form class="uvForm" id="searchUV">
                             <input class="input" type="text" name="search" placeholder="Søk etter sted" />
                             <input class="btnForm" type="submit" name="submit" value="Se varsel" />
@@ -43,14 +43,14 @@
                         
                     </div>
                     <div id="greyBlock" class="flex-1 greyBlock">
-                        <h3 id="uvTitle" class="textCenter">Søk etter ditt område for å se strålingsnivåene fra solen i dag.</h3>
+                        <h3 id="uvTitle" class="textCenter">Søk etter din nærmeste by for å se strålingsnivåene fra solen i dag.</h3>
                     </div>
                 </div>
             </div>
 
 
             <h2 class="noMargin">Forklaring av UV-index</h2>
-            <div class="borderBlock noPadding borderRadius h-450">
+            <div id="low" class="borderBlock noPadding borderRadius h-370 mb-64">
                 <div class="cols noMargin">
                     <div class="leftBlock halfWidth imgContainer">
                         <img class="uvPic" src="img/sunset1.jpg" alt="sunset" />
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <div class="borderBlock noPadding borderRadius h-450">
+            <div id="mid" class="borderBlock noPadding borderRadius h-370 mb-64">
                 <div class="cols noMargin flex-reverse">
                     <div class="flex-1 p-24">
                         <h3>UV Indeks 3-5</h3>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <div class="borderBlock noPadding borderRadius h-450">
+            <div id="high" class="borderBlock noPadding borderRadius h-370 mb-64">
                 <div class="cols noMargin">
                     <div class="leftBlock halfWidth imgContainer">
                         <img src="img/sunset3.jpg" alt="sunset" />
@@ -101,7 +101,7 @@
                     </div>
                 </div>
             </div>
-            <div class="borderBlock noPadding borderRadius h-450">
+            <div id="xhigh" class="borderBlock noPadding borderRadius h-370 mb-64">
                 <div class="cols noMargin flex-reverse">
                     <div class="flex-1 p-24">
                         <h3>UV Indeks 8-10</h3>
@@ -120,8 +120,8 @@
                         <img class="uvPic" src="img/sunset4.jpg" alt="sunset" />
                     </div>
                 </div>
-            </div>
-            <div class="borderBlock noPadding borderRadius h-450">
+            </div> 
+            <div id="extreme" class="borderBlock noPadding borderRadius h-370 mb-64">
                 <div class="cols noMargin">
                     <div class="leftBlock halfWidth imgContainer">
                         <img class="uvPic" src="img/sunset5.jpg" alt="sunset" />

@@ -11,6 +11,7 @@ body {
     max-width: 1260px;
     width: 100%;
     margin: 0 auto;
+    scroll-behavior: smooth;
 }
 
 .flex {
@@ -215,13 +216,17 @@ td {
     padding: .5rem;
 }
 
-.h-450 {
-    height: 450px;
+.h-370 {
+    height: 370px;
     overflow: hidden;
 }
 
 .mb-24 {
     margin-bottom: 24px;
+}
+
+.mb-64 {
+    margin-bottom: 4rem;
 }
 
 @media only screen and (max-width:600px) {

@@ -73,19 +73,59 @@ const listUVResult = (obj, city) => {
     let h3 = document.getElementById("uvTitle");
     h3.innerText = `UV-stråling rundt ${city}:`;
 
+    //Creates the anchor link pointing to the correct infoblock section
+    const link = document.createElement("a");
+    link.setAttribute("class", "uvLink");
+    let linkText;
+
     //Add icon for weather forecast
     const icon = document.createElement("img");
+    
+    const uvValues = {
+        low: "Lav stråling",
+        mid: "Middels stråling",
+        high: "Høy stråling",
+        xhigh: "Ekstra høy stråling",
+        extreme: "Ekstrem stråling"
+    };
+    const value = obj.DailyForecasts[0].AirAndPollen[5].Value;
+
+    if(value < 3) {
+        linkText = document.createTextNode(uvValues.low);
+        link.appendChild(linkText);
+        link.href="#lav";
+    } else if(value < 6){
+        linkText = document.createTextNode(uvValues.mid);
+        link.appendChild(linkText);
+        link.href="#mid";
+    } else if(value < 8) {
+        linkText = document.createTextNode(uvValues.high);
+        link.appendChild(linkText);
+        link.href="#high";
+    } else if(value < 11 ) {
+        linkText = document.createTextNode(uvValues.xhigh);
+        link.appendChild(linkText);
+        link.href="#xhigh";
+    } else {
+        linkText = document.createTextNode(uvValues.extreme);
+        link.appendChild(linkText);
+        link.href="#extreme";
+    };
+
     icon.setAttribute("src", "img/sun.png");
     icon.setAttribute("class", "weatherIcon");
-    //Add icon to container
-    container.appendChild(icon);
 
     //Add h2 heading to list out location name
     const uvIndex = document.createElement("h2");
     uvIndex.setAttribute("id", "uvIndex");
     //Add city search string to location h2
-    uvIndex.append(obj.DailyForecasts[0].AirAndPollen[5].Value + " " + obj.DailyForecasts[0].AirAndPollen[5].Category );
+        
+    uvIndex.append("UV Indeks: " + value);
+
+    //Add icon to container
+    container.appendChild(icon);
 
     //Add location title to container
     container.appendChild(uvIndex);
+    container.appendChild(link);
 }
