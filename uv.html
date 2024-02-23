@@ -27,31 +27,32 @@
         </div>
     </section>-->
     <div id="main" class="container ">
+        <img class="top-img" src="img/top.jpg" alt="Solnedgang med fine farger" />
         <div class="innerContainer">
-            <h1>UV-varsel – sjekk strålingen hos deg</h1>
-            <p>Når sola er sterk bør du bruke solkrem og legge inn pauser i skyggen. Sjekk UV-varselet her for å se hvordan strålingen er i dag.</p>
+            <div class="mb-64">
+                <h1>UV-varsel – sjekk strålingen hos deg</h1>
+                <p>Når sola er sterk bør du bruke solkrem og legge inn pauser i skyggen. Sjekk UV-varselet her for å se hvordan strålingen er i dag.</p>
+            </div>
             <!-- UV Varsel -->
-            <div class="borderBlock borderRadius mb-64">
-                <div class="cols flex-reverse noMargin">
-                    <div class="leftBlock">
-                        <h2>Se UV-varselet i ditt område</h2>
-                        <form class="uvForm" id="searchUV">
-                            <input class="input" type="text" name="search" placeholder="Søk etter sted" />
-                            <input class="btnForm" type="submit" name="submit" value="Se varsel" />
-                        </form>
-                        <!-- Løses med single blocks for hver index, i stedet for tabell -->
-                        
-                    </div>
-                    <div id="greyBlock" class="flex-1 greyBlock">
-                        <h3 id="uvTitle" class="textCenter">Søk etter din nærmeste by for å se strålingsnivåene fra solen i dag.</h3>
-                    </div>
+            <div class="flex noGap flex-col mb-64">
+                <div class="leftBlock gap-2">
+                    <h2 class="noMargin">Se UV-varselet i ditt område</h2>
+                    <form class="uvForm" id="searchUV">
+                        <input class="input" type="text" name="search" placeholder="Søk etter sted" />
+                        <input class="btnForm" type="submit" name="submit" value="Se varsel" />
+                    </form>
+                    <!-- Løses med single blocks for hver index, i stedet for tabell -->
+                    
+                </div>
+                <div id="greyBlock" class="flex-1 greyBlock">
+                    <h3 id="uvTitle" class="textCenter">Søk etter din nærmeste by for å se strålingsnivåene fra solen i dag.</h3>
                 </div>
             </div>
 
 
             <h2 class="noMargin">Forklaring av UV-index</h2>
-            <div id="low" class="borderBlock noPadding borderRadius h-370 mb-64">
-                <div class="cols noMargin">
+            <div id="low" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder blue">
+                <div class="cols noMargin noGap">
                     <div class="leftBlock halfWidth imgContainer">
                         <img class="uvPic" src="img/sunset1.jpg" alt="sunset" />
                     </div>
@@ -68,8 +69,8 @@
                     </div>
                 </div>
             </div>
-            <div id="mid" class="borderBlock noPadding borderRadius h-370 mb-64">
-                <div class="cols noMargin flex-reverse">
+            <div id="mid" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder blue">
+                <div class="cols noMargin flex-reverse noGap">
                     <div class="flex-1 p-24">
                         <h3>UV Indeks 3-5</h3>
                         <p class="mb-24"><span class="label borderRadius yellow">Middels stråling</span></p>
@@ -84,8 +85,8 @@
                     </div>
                 </div>
             </div>
-            <div id="high" class="borderBlock noPadding borderRadius h-370 mb-64">
-                <div class="cols noMargin">
+            <div id="high" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder blue">
+                <div class="cols noMargin noGap">
                     <div class="leftBlock halfWidth imgContainer">
                         <img src="img/sunset3.jpg" alt="sunset" />
                     </div>
@@ -101,8 +102,8 @@
                     </div>
                 </div>
             </div>
-            <div id="xhigh" class="borderBlock noPadding borderRadius h-370 mb-64">
-                <div class="cols noMargin flex-reverse">
+            <div id="xhigh" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder blue">
+                <div class="cols noMargin flex-reverse noGap">
                     <div class="flex-1 p-24">
                         <h3>UV Indeks 8-10</h3>
                         <p class="mb-24"><span class="label borderRadius orange">Svært høy stråling</span></p>
@@ -121,9 +122,9 @@
                     </div>
                 </div>
             </div> 
-            <div id="extreme" class="borderBlock noPadding borderRadius h-370 mb-64">
+            <div id="extreme" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder blue">
                 <div class="cols noMargin">
-                    <div class="leftBlock halfWidth imgContainer">
+                    <div class="leftBlock halfWidth imgContainer noGap">
                         <img class="uvPic" src="img/sunset5.jpg" alt="sunset" />
                     </div>
                     <div class="flex-1 p-24">

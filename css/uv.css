@@ -1,7 +1,11 @@
 .cols {
     display: flex;
-    gap: 2rem;
     margin-bottom: 3rem;
+    gap: 2rem;
+}
+
+.noGap {
+    gap: 0;
 }
 
 .greyBlock {
@@ -13,6 +17,14 @@
     padding: 1.5rem;
     border-radius: 6px;
     min-height: 200px;
+}
+
+.noBorder {
+    border: none;
+}
+
+.blue {
+    background-color: #f0f8fd;
 }
 
 .uvForm {
@@ -143,5 +155,9 @@
 
     .halfWidth {
         width: 100%;
+    }
+
+    .noGap {
+        gap: 1rem;
     }
 }
