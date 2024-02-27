@@ -34,31 +34,29 @@
                 <p>Når sola er sterk bør du bruke solkrem og legge inn pauser i skyggen. Sjekk UV-varselet her for å se hvordan strålingen er i dag.</p>
             </div>
             <!-- UV Varsel -->
-            <div class="flex noGap flex-col mb-64">
+            <div class="flex cols gap-2 mb-64">
                 <div class="leftBlock gap-2">
-                    <h2 class="noMargin">Se UV-varselet i ditt område</h2>
+                    <h2 class="noMargin">Se UV-varselet i din nærmeste by</h2>
                     <form class="uvForm" id="searchUV">
-                        <input class="input" type="text" name="search" placeholder="Søk etter sted" />
+                        <input class="input" type="text" name="search" placeholder="Søk etter din nærmeste by" />
                         <input class="btnForm" type="submit" name="submit" value="Se varsel" />
                     </form>
                     <!-- Løses med single blocks for hver index, i stedet for tabell -->
                     
                 </div>
-                <div id="greyBlock" class="flex-1 greyBlock">
+                <div id="greyBlock" class="greyBlock">
                     <h3 id="uvTitle" class="textCenter">Søk etter din nærmeste by for å se strålingsnivåene fra solen i dag.</h3>
                 </div>
             </div>
-
-
             <h2 class="noMargin">Forklaring av UV-index</h2>
-            <div id="low" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder blue">
+            <div id="low" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder grey">
                 <div class="cols noMargin noGap">
                     <div class="leftBlock halfWidth imgContainer">
                         <img class="uvPic" src="img/sunset1.jpg" alt="sunset" />
                     </div>
                     <div class="flex-1 p-24">
                         <h3>UV Indeks 0-2</h3>
-                        <p class="mb-24"><span class="label borderRadius purple">Lav stråling</span></p>
+                        <p class="mb-24"><span class="label borderRadius blue">Lav stråling</span></p>
                         <p>Med en lav UV-indeks på 0 til 2 er det liten risiko for å bli solbrent.
                             Du bør likevel bruke dagkrem med solfaktor for å beskytte huden.
                             Velg en solfaktor som er minst dobbelt så
@@ -69,11 +67,11 @@
                     </div>
                 </div>
             </div>
-            <div id="mid" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder blue">
+            <div id="mid" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder grey">
                 <div class="cols noMargin flex-reverse noGap">
                     <div class="flex-1 p-24">
                         <h3>UV Indeks 3-5</h3>
-                        <p class="mb-24"><span class="label borderRadius yellow">Middels stråling</span></p>
+                        <p class="mb-24"><span class="label borderRadius green">Middels stråling</span></p>
                         <p>Med en middels UV-indeks på 3 til 5 anbefales det å bruke klær som beskytter (skjorte, T-skjorte, bluse). Solbriller og solhatt kan også beskytte deg mot UV-stråling.
                             I tillegg bør du beskytte huden ved å påføre solkrem som er tilpasset nettopp din hudtype.
                             Velg en solfaktor som er minst dobbelt så
@@ -85,14 +83,14 @@
                     </div>
                 </div>
             </div>
-            <div id="high" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder blue">
+            <div id="high" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder grey">
                 <div class="cols noMargin noGap">
                     <div class="leftBlock halfWidth imgContainer">
                         <img src="img/sunset3.jpg" alt="sunset" />
                     </div>
                     <div class="flex-1 p-24">
                         <h3>UV Indeks 6-7</h3>
-                        <p class="mb-24"><span class="label borderRadius green">Høy stråling</span></p>
+                        <p class="mb-24"><span class="label borderRadius yellow">Høy stråling</span></p>
                         <p>Med en høy UV-indeks på 6 til 7 anbefales det å dekke til
                             overkroppen. Husk også solbriller og bruk solhatt som beskytter den
                             sensitive hodebunnen. Det anbefales også å bruke leppepomade med solfaktor.
@@ -102,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            <div id="xhigh" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder blue">
+            <div id="xhigh" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder grey">
                 <div class="cols noMargin flex-reverse noGap">
                     <div class="flex-1 p-24">
                         <h3>UV Indeks 8-10</h3>
@@ -122,7 +120,7 @@
                     </div>
                 </div>
             </div> 
-            <div id="extreme" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder blue">
+            <div id="extreme" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder grey">
                 <div class="cols noMargin">
                     <div class="leftBlock halfWidth imgContainer noGap">
                         <img class="uvPic" src="img/sunset5.jpg" alt="sunset" />

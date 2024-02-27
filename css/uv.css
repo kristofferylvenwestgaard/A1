@@ -11,12 +11,9 @@
 .greyBlock {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background-color: #F3FCF2;
-    padding: 1.5rem;
+    width: 50%;
     border-radius: 6px;
-    min-height: 200px;
 }
 
 .noBorder {
@@ -37,7 +34,7 @@
 .leftBlock {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 50%;
     gap: 1rem;
     /* margin-bottom: 3.5rem; */
 }
@@ -66,31 +63,37 @@
 }
 
 .green {
-    background-color: #ace9e2;
+    background-color: #ADDA9A !important;
 }
 
 .yellow {
-    background-color: #faebaa;
+    background-color: #ffe164 !important;
 }
 
 .orange {
-    background-color: #f2c7c2;
+    background-color: #FF8F4D !important;
 }
 
 .red {
-    background-color: #ef7a6a;
+    background-color: #F05E4A !important;
 }
 
-.purple {
-    background-color: #DFCBE9;
+.blue {
+    background-color: #C2E5F8 !important;
+}
+
+.grey {
+    background-color: #F7F7F8 !important;
 }
 
 .uvResult {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 1.5rem 0 0 0;
-    gap: 1.5rem;
+    gap: .5rem;
+    background-color: #F7F7F8;
+    padding: 2rem;
+    border-radius: 6px;
 }
 
 .weatherIcon {
@@ -101,13 +104,43 @@
     margin-top: -200px;
 }
 
-.uvLink {
-    font-size: 1.25rem;
+.uvlevel, #uvIndex {
+    font-size: .875rem;
     font-weight: 500;
     margin-top: 0;
 }
 
+.uvlevel {
+    margin-left: auto;
+    margin-bottom: 0 !important;
+}
+
+.uvbar {
+    width: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.bar {
+    height: 1rem;
+    display: flex;
+    gap: .5rem;
+    border-radius: 6px;
+}
+
+.barvalue {
+    flex: 1;
+    background-color: #d6d6d6;
+    border-radius: 100px;
+}
+
 @media only screen and (max-width: 600px) {
+    .greyBlock {
+        width: 100%;
+    }
+    
     .leftBlock {
         width: 100%;
         flex-direction: column;
@@ -157,7 +190,16 @@
         width: 100%;
     }
 
+    .uvResult {
+        padding: 1rem;
+    }
+
     .noGap {
         gap: 1rem;
+    }
+
+    .bar {
+        height: .75rem;
+        gap: .25rem;
     }
 }
