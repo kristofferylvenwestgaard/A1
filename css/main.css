@@ -150,7 +150,6 @@ a:hover {
     height: 50px;
     border-radius: 6px;
     border: 1px solid #d6d6d6;
-    flex:1;
     font-size: 1rem;
 }
 
@@ -229,6 +228,37 @@ td {
 
 .label {
     padding: .5rem;
+    font-size: .875rem;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.formLabel {
+    font-size: .75rem;
+    color: #595959;
+}
+
+.error {
+    color: #CA3622;
+    font-weight: 600;
+}
+
+.input.error {
+    border: 1px solid #CA3622;
+    font-weight: 400;
+}
+
+.input.error:active, .input.error:focus {
+    color:#000;
+}
+
+.locInput {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    border: none;
+    padding: 0;
+    flex: 1;
 }
 
 .h-370 {

@@ -27,6 +27,7 @@
 .uvForm {
     display: flex;
     width: 100%;
+    height: 100px;
     gap: 1rem;
     margin-bottom: 2rem;
 }
@@ -86,6 +87,17 @@
     background-color: #F7F7F8 !important;
 }
 
+.uvIndexContainer {
+    display: flex;
+    gap:1rem;
+    align-items: center;
+    margin-right: auto;
+    border-radius: 100px;
+    padding-right: 1.5rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+}
+
 .uvResult {
     display: flex;
     flex-direction: column;
@@ -96,23 +108,34 @@
     border-radius: 6px;
 }
 
-.weatherIcon {
-    width: 72px;
-}
-
 .uvPic {
     margin-top: -200px;
 }
 
-.uvlevel, #uvIndex {
+.uvlevel {
     font-size: .875rem;
     font-weight: 500;
     margin-top: 0;
 }
 
+#uvIndex {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: .25rem;
+}    
+
+.uvIcon {
+    padding: .5rem;
+    border-radius: 100px;
+}
+
 .uvlevel {
     margin-left: auto;
     margin-bottom: 0 !important;
+    margin-top:.25rem;
+    padding: .25rem .5rem;
+    border-radius: 6px;
+    background-color: aqua;
 }
 
 .uvbar {
@@ -188,6 +211,10 @@
 
     .halfWidth {
         width: 100%;
+    }
+
+    .uvForm {
+        height: auto;
     }
 
     .uvResult {

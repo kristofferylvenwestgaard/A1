@@ -12,20 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head> 
 <body>
-    <!-- A1 Header 
-    <section id="header" class="header">
-        <div class="container flex gap-md v-center">
-            <div class="logo">
-                <img src="./img/new-header-logo.svg" alt="Apotek 1 logo" />
-            </div>
-            <button class="menu"><img src="./img/ic-menu.svg">Meny</button>
-            <input class="search flex-1 input-text" type="text" name="search" placeholder="Søk blant 10 000 produkter og råd"></input>
-
-            <button class="menu"><img src="./img/ic-RX.svg">Mine resepter</button>
-            <button class="menu"><img src="./img/ic_minside.svg">Min side</button>
-            <button class="menu"><img src="./img/ic-menu.svg">Kasse</button>
-        </div>
-    </section>-->
     <div id="main" class="container ">
         <img class="top-img" src="img/top.jpg" alt="Solnedgang med fine farger" />
         <div class="innerContainer">
@@ -38,14 +24,15 @@
                 <div class="leftBlock gap-2">
                     <h2 class="noMargin">Se UV-varselet i din nærmeste by</h2>
                     <form class="uvForm" id="searchUV">
-                        <input class="input" type="text" name="search" placeholder="Søk etter din nærmeste by" />
-                        <input class="btnForm" type="submit" name="submit" value="Se varsel" />
-                    </form>
-                    <!-- Løses med single blocks for hver index, i stedet for tabell -->
-                    
+                        <fieldset class="locInput">
+                            <input class="input" id="inp" type="text" name="search" placeholder="Skriv inn bynavn" />
+                            <label for="inp" id="inpLabel" class="formLabel">Søk etter din nærmeste by</label>
+                        </fieldset>
+                        <input class="btnForm" data-gtm-event="iframe" data-gtm-category="ux" data-gtm-action="button" data-gtm-label="uv-varsel" type="submit" name="submit" value="Se varsel" />
+                    </form>       
                 </div>
                 <div id="greyBlock" class="greyBlock">
-                    <h3 id="uvTitle" class="textCenter">Søk etter din nærmeste by for å se strålingsnivåene fra solen i dag.</h3>
+                    <h3 id="uvTitle" class="textCenter">Søk etter og se UV-indeks for ditt nærområde.</h3>
                 </div>
             </div>
             <h2 class="noMargin">Forklaring av UV-index</h2>
@@ -139,46 +126,6 @@
                     </div>
                 </div>
             </div>
-            <!--<table>
-                <thead>
-                    <td>UV Index</td>
-                    <td>Nivå</td>
-                    <td>Tid før mulig hudskade</td>
-                    <td>Råd</td>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="inline"><div class="dot green"></div>1-2</span></td>
-                        <td>Lav</td>
-                        <td>> 1 time</td>
-                        <td>Du kan trygt være ute uten solbeskyttelse.</td>
-                    </tr>
-                    <tr>
-                        <td><span class="inline"><div class="dot yellow"></div>3-5</span></td>
-                        <td>Moderat</td>
-                        <td>30-40 min</td>
-                        <td>Ta pauser fra solen. Klær, hatt og solbriller gir god beskyttelse, og ikke glem solkremen (helst faktor 30 eller mer).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="inline"><div class="dot orange"></div>1-2</span></td>
-                        <td>Høy</td>
-                        <td>20 min</td>
-                        <td>Ta pauser fra solen mellom klokka 12-15. Klær hatt og solbriller gir god solbeskyttelse. Bruk solkrem med høy faktor (minst faktor 30, gjerne mer).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="inline"><div class="dot red"></div>8-10</span></td>
-                        <td>Svært høy</td>
-                        <td>15 min</td>
-                        <td>Unngå solen mellom klokka 12-15 og søk skygge. Bruk klær, solhatt og solbriller. Bruk solkrem med høy faktor (minst faktor 30, gjerne 50 eller 50+).</td>
-                    </tr>
-                    <tr>
-                        <td><span class="inline"><div class="dot purple"></div>> 11</span></td>
-                        <td>Ekstrem</td>
-                        <td>< 10 min</td>
-                        <td>Unngå solen mellom klokka 12-15 og søk skygge. Klær, solhatt og solbriller er absolutt nødvendig. Bruk solkrem med høy faktor (minst faktor 30, gjerne 50+).</td>
-                    </tr>
-                </tbody>
-            </table>-->
         </div>
     </div>
     <!--script src="js/js.js"></script>-->

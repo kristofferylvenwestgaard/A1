@@ -1,8 +1,8 @@
 //location key Oslo = 254946
 const form = document.forms["searchUV"];
 let container = false;
-const key1 = "aPvjzXtDpJEvYp3SB4sHSoDULatS7KwF";
-const key2 = "bBILPj8ey0NS63jYGlCYzQQpqBt5ara9";
+
+const peloton = atob("YkJJTFBqOGV5ME5TNjNqWUdsQ1l6UVFwcUJ0NWFyYTk=");
 
 //HandleSubmit event on location UV Index form
 const submitSearch = async (e) => {
@@ -25,7 +25,7 @@ form.addEventListener("submit", submitSearch)
 const getLocationKey = async (searchTerm) => {
     const location = searchTerm;
     console.log(location);
-    const endpoint = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${key1}&q=${location}&language=no&details=true`;
+    const endpoint = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${peloton}&q=${location}&language=no&details=true`;
     try {
         const response = await fetch(endpoint);
         if(response.ok) {
@@ -40,11 +40,18 @@ const getLocationKey = async (searchTerm) => {
 //Get UV Index for location "c"
 const getUV = async (c) => {
     let locationKey;
+    const input = document.getElementById("inp");
+    const inputLabel = document.getElementById("inpLabel");
     console.log(c);
     if(c.length > 0) {
+        if(inputLabel.classList.contains("error")) {
+            input.classList.remove("error");
+            inputLabel.classList.remove("error");
+            inputLabel.innerHTML = "Søk etter din nærmeste by";
+        }
         locationKey = c[0].Key;
         console.log(locationKey);
-        const endpoint = `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=${key1}&language=no&details=true&metric=true`;
+        const endpoint = `https://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=${peloton}&language=no&details=true&metric=true`;
         try{
             const response = await fetch(endpoint);
             if(response.ok) {
@@ -55,7 +62,11 @@ const getUV = async (c) => {
             throw new Error("Something failed");
         }
     } else {
-        throw new Error("No location found");
+        const error = "Fant ikke stedet du søkte etter. Prøv nærmeste by.";
+        inputLabel.classList.add("error");
+        inputLabel.innerHTML = error;
+        input.classList.add("error");
+        throw new Error(error);
     }
 }
 
@@ -73,15 +84,12 @@ const listUVResult = (obj, city) => {
 
     //Change h3 content from UV to "UV-stråling rundt"
     let h3 = document.getElementById("uvTitle");
-    h3.innerText = `UV-stråling rundt ${city}:`;
+    h3.innerText = `UV-indeks rundt ${city}:`;
 
     //Creates the anchor link pointing to the correct infoblock section
     const level = document.createElement("p");
     level.setAttribute("class", "uvlevel");
     let linkText;
-
-    //Add icon for weather forecast
-    const icon = document.createElement("img");
     
     const uvValues = {
         low: "Lav stråling",
@@ -90,83 +98,103 @@ const listUVResult = (obj, city) => {
         xhigh: "Ekstra høy stråling",
         extreme: "Ekstrem stråling"
     };
-    const value = obj.DailyForecasts[0].AirAndPollen[5].Value;
 
-    //Create bar for UV varsel
-    const barContainer = document.createElement("div");
-    const bar = document.createElement("div");
-    const barValue0 = document.createElement("div");
-    const barValue1 = document.createElement("div");
-    const barValue2 = document.createElement("div");
-    const barValue3 = document.createElement("div");
-    const barValue4 = document.createElement("div");
+    if(obj.DailyForecasts && obj.DailyForecasts.length && obj.DailyForecasts[0].AirAndPollen && obj.DailyForecasts[0].AirAndPollen.length > 5) {
+        const value = obj.DailyForecasts[0].AirAndPollen[5].Value;
+        //Create bar for UV varsel
+        const barContainer = document.createElement("div");
+        const bar = document.createElement("div");
+        const barValue0 = document.createElement("div");
+        const barValue1 = document.createElement("div");
+        const barValue2 = document.createElement("div");
+        const barValue3 = document.createElement("div");
+        const barValue4 = document.createElement("div");
 
-    //Add class .barvalue for the bar elements
-    barContainer.setAttribute("class", "uvbar");
-    bar.setAttribute("class", "bar");
-    barValue0.setAttribute("class", "barvalue");
-    barValue1.setAttribute("class", "barvalue");
-    barValue2.setAttribute("class", "barvalue");
-    barValue3.setAttribute("class", "barvalue");
-    barValue4.setAttribute("class", "barvalue");
+        //Add class .barvalue for the bar elements
+        barContainer.setAttribute("class", "uvbar");
+        bar.setAttribute("class", "bar");
+        barValue0.setAttribute("class", "barvalue");
+        barValue1.setAttribute("class", "barvalue");
+        barValue2.setAttribute("class", "barvalue");
+        barValue3.setAttribute("class", "barvalue");
+        barValue4.setAttribute("class", "barvalue");
+        const uvIcon = new Image(24,24);
+        uvIcon.src = "img/ic-uv.svg";
+        uvIcon.setAttribute("class", "uvIcon");
 
-    //Set UV-Index values and linktext + ADD COLOR TO BAR
-    if(value < 3) {
-        linkText = document.createTextNode(uvValues.low);
-        level.appendChild(linkText);
-        barValue0.classList.add("blue");
-    } else if(value < 6){
-        linkText = document.createTextNode(uvValues.mid);
-        level.appendChild(linkText);
-        barValue0.classList.add("green");
-        barValue1.classList.add("green");
-    } else if(value < 8) {
-        linkText = document.createTextNode(uvValues.high);
-        level.appendChild(linkText);
-        barValue0.classList.add("yellow");
-        barValue1.classList.add("yellow");
-        barValue2.classList.add("yellow");
-    } else if(value < 11 ) {
-        linkText = document.createTextNode(uvValues.xhigh);
-        level.appendChild(linkText);
-        barValue0.classList.add("orange");
-        barValue1.classList.add("orange");
-        barValue2.classList.add("orange");
-        barValue3.classList.add("orange");
+        //Set UV-Index values and linktext + ADD COLOR TO BAR
+        if(value < 3) {
+            linkText = document.createTextNode(uvValues.low);
+            level.appendChild(linkText);
+            level.classList.add("blue")
+            barValue0.classList.add("blue");
+            uvIcon.classList.add("blue");
+        } else if(value < 6){
+            linkText = document.createTextNode(uvValues.mid);
+            level.appendChild(linkText);
+            level.classList.add("green");
+            barValue0.classList.add("green");
+            barValue1.classList.add("green");
+            uvIcon.classList.add("green");
+        } else if(value < 8) {
+            linkText = document.createTextNode(uvValues.high);
+            level.appendChild(linkText);
+            level.classList.add("yellow");
+            barValue0.classList.add("yellow");
+            barValue1.classList.add("yellow");
+            barValue2.classList.add("yellow");
+            uvIcon.classList.add("yellow");
+        } else if(value < 11 ) {
+            linkText = document.createTextNode(uvValues.xhigh);
+            level.appendChild(linkText);
+            level.classList.add("orange");
+            barValue0.classList.add("orange");
+            barValue1.classList.add("orange");
+            barValue2.classList.add("orange");
+            barValue3.classList.add("orange");
+            uvIcon.classList.add("orange");
+        } else {
+            linkText = document.createTextNode(uvValues.extreme);
+            level.appendChild(linkText);
+            level.classList.add("red");
+            barValue0.classList.add("red");
+            barValue1.classList.add("red");
+            barValue2.classList.add("red");
+            barValue3.classList.add("red");
+            barValue4.classList.add("red");
+            uvIcon.classList.add("red");
+        };
+
+        //Add all bars to the bar, and adding bar to barContainer.
+        bar.appendChild(barValue0);
+        bar.appendChild(barValue1);
+        bar.appendChild(barValue2);
+        bar.appendChild(barValue3);
+        bar.appendChild(barValue4);
+        barContainer.appendChild(bar);
+
+        //Add h2 heading to list out location name
+        const uvIndexContainer = document.createElement("div");
+        uvIndexContainer.setAttribute("class", "uvIndexContainer")
+        const uvIndex = document.createElement("h3");
+        uvIndex.setAttribute("id", "uvIndex");
+        //Add city search string to location h2
+            
+        uvIndex.append("UV " + value);
+        uvIndexContainer.appendChild(uvIcon);
+        uvIndexContainer.appendChild(uvIndex);
+
+        //Add location title to container
+        container.appendChild(uvIndexContainer);
+
+        //Add bar to container
+        container.appendChild(bar);
+
+        //container.appendChild(bar);
+        container.appendChild(level);
     } else {
-        linkText = document.createTextNode(uvValues.extreme);
-        level.appendChild(linkText);
-        barValue0.classList.add("red");
-        barValue1.classList.add("red");
-        barValue2.classList.add("red");
-        barValue3.classList.add("red");
-        barValue4.classList.add("red");
-    };
-
-    //Add all bars to the bar, and adding bar to barContainer.
-    bar.appendChild(barValue0);
-    bar.appendChild(barValue1);
-    bar.appendChild(barValue2);
-    bar.appendChild(barValue3);
-    bar.appendChild(barValue4);
-    barContainer.appendChild(bar);
-
-    icon.setAttribute("src", "img/sun.png");
-    icon.setAttribute("class", "weatherIcon");
-
-    //Add h2 heading to list out location name
-    const uvIndex = document.createElement("p");
-    uvIndex.setAttribute("id", "uvIndex");
-    //Add city search string to location h2
-        
-    uvIndex.append("UV Indeks: " + value);
-
-    //Add location title to container
-    container.appendChild(uvIndex);
-
-    //Add bar to container
-    container.appendChild(bar);
-
-    //container.appendChild(bar);
-    container.appendChild(level);
+        throw new Error("Did not receive any data for that location");
+    }
 }
+
+    
