@@ -287,3 +287,10 @@ td {
         padding: 1rem
     }
 }
+
+@media only screen and (min-width: 601px) and (max-width:1259px) {
+    .innerContainer{
+        padding: 0 .75rem;
+    }
+}
+

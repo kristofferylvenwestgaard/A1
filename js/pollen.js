@@ -95,7 +95,7 @@ const listUVResult = (obj, city) => {
     //Change h3 content from UV to "UV-stråling rundt" + remove initial styling
     let h3 = document.getElementById("uvTitle");
     h3.classList.remove("initialTitle");
-    h3.innerText = `UV-indeks rundt ${city}:`;
+    h3.innerText = `Pollenvarsel rundt ${city}:`;
 
     //Create top bar for UV index widget
     const widgetTop = document.createElement("div");
@@ -108,17 +108,17 @@ const listUVResult = (obj, city) => {
     //Store level text values
     let levelText;
     const uvValues = {
-        low: "Lav stråling",
-        mid: "Middels stråling",
-        high: "Høy stråling",
-        xhigh: "Ekstra høy stråling",
-        extreme: "Ekstrem stråling"
+        low: "Ingen spredning",
+        mid: "Beskjeden spredning",
+        high: "Moderat spredning",
+        xhigh: "Kraftig spredning",
+        extreme: "Ekstrem spredning"
     };
 
     //Check that the data and index in return object actually exists or return error
     if(obj.DailyForecasts && obj.DailyForecasts.length && obj.DailyForecasts[0].AirAndPollen && obj.DailyForecasts[0].AirAndPollen.length > 5) {
         //Data from return object
-        const value = obj.DailyForecasts[0].AirAndPollen[5].Value;
+        const value = obj.DailyForecasts[0].AirAndPollen[4].Value;
         
         //Create bar and container for UV varsel
         const barContainer = document.createElement("div");
@@ -142,24 +142,24 @@ const listUVResult = (obj, city) => {
 
         //Import UV icon and add class
         const uvIcon = new Image(24,24);
-        uvIcon.src = "img/ic-uv.svg";
+        uvIcon.src = "img/ic-tree.svg";
         uvIcon.setAttribute("class", "uvIcon");
 
         //Set UV-Index values + levelbadge value + Add color to bar and icon background
-        if(value < 3) {
+        if(value === 0) {
             levelText = document.createTextNode(uvValues.low);
             level.appendChild(levelText);
             level.classList.add("blue")
             barValue0.classList.add("blue");
             uvIcon.classList.add("blue");
-        } else if(value < 6){
+        } else if(value >= 1 && value <= 9){
             levelText = document.createTextNode(uvValues.mid);
             level.appendChild(levelText);
             level.classList.add("green");
             barValue0.classList.add("green");
             barValue1.classList.add("green");
             uvIcon.classList.add("green");
-        } else if(value < 8) {
+        } else if(value >= 10 && value <= 99) {
             levelText = document.createTextNode(uvValues.high);
             level.appendChild(levelText);
             level.classList.add("yellow");
@@ -167,7 +167,7 @@ const listUVResult = (obj, city) => {
             barValue1.classList.add("yellow");
             barValue2.classList.add("yellow");
             uvIcon.classList.add("yellow");
-        } else if(value < 11 ) {
+        } else if(value >= 100 && value <= 999 ) {
             levelText = document.createTextNode(uvValues.xhigh);
             level.appendChild(levelText);
             level.classList.add("orange");
@@ -207,7 +207,7 @@ const listUVResult = (obj, city) => {
         uvIndex.setAttribute("id", "uvIndex");
         
         //Add UV index value to h3   
-        uvIndex.append("UV " + value);
+        uvIndex.append("Trepollen " + value);
 
         //Add index and icon to the rounded element
         uvIndexContainer.appendChild(uvIcon);

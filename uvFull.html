@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            height: 400vh;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1260px;
+            width: 100%;
+            margin: 0 auto;
+            scroll-behavior: smooth;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .gap-2 {
+            gap: 2rem !important;
+        }
+
+        .flex-1 {
+            flex: 1;
+        }
+
+        .v-center {
+            align-items: center;
+        }
+
+        .gap-sm {
+            gap: .75rem;
+        }
+
+        .gap-md {
+            gap: 1rem;
+        }
+
+        .top-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+
+        p {
+            font-size: 1rem;
+            line-height: 150%;
+            margin: .5rem 0 1rem 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 3rem 0 2rem 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 0 0 1.5rem 0;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-top: 0;
+        }
+
+        button {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: .85rem;
+        }
+
+        a {
+            color: #000;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .cta {
+            display: flex;
+            gap: .5rem;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            padding: .65rem 1rem;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            margin-top: .5rem;
+        }
+
+        .secondaryOutline {
+            border: 2px solid #0d2880;
+            background-color: transparent;
+            color: #0d2880;
+            max-height: 44.5px;
+        }
+
+        .fullwidth {
+            width: 100%;
+        }
+
+        .primary {
+            background-color: #1b6613;
+        }
+
+        .secondary {
+            background-color: #0d2880;
+        }
+
+        .lightGreen {
+            background-color: #F3FCF2;
+        }
+
+        .lightGrey {
+            background-color: #F7F7F8;
+        }
+
+        /* Sticky */
+        .sticky {
+            position: fixed;
+            bottom: 0;
+            height: auto;
+            width: 100%;
+            background-color: #ededed;
+            padding: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Container header-revscroll top margin */
+        .headerRevscroll {
+            margin-top: 80px;
+        }
+
+        .input {
+            padding: 0 1rem;
+            height: 50px;
+            border-radius: 6px;
+            border: 1px solid #d6d6d6;
+            font-size: 1rem;
+        }
+
+        .btnForm {
+            padding: 0 1rem;
+            height: 50px;
+            border-radius: 6px;
+            background-color: #1b6613;
+            color: #fff;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btnForm:hover {
+            background-color: #264122;
+        }
+
+        .borderRadius {
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .borderBlock {
+            display: flex;
+            flex-direction: column;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border: 1px solid #d6d6d6;
+        }
+
+        .noPadding {
+            padding: 0;
+        }
+
+        .noMargin {
+            margin: 0 !important;
+        }
+
+        .p-24 {
+            padding: 3rem;
+        }
+
+        .flex-1 {
+            flex: 1;
+        }
+
+        .textCenter {
+            text-align: center;
+        }
+
+        .innerContainer {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #d6d6d6;
+            border-collapse: collapse;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 1rem;
+        }
+
+        .inline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .label {
+            padding: .5rem;
+            font-size: .875rem;
+            font-weight: 500;
+            margin-top: 0;
+        }
+
+        .formLabel {
+            font-size: .75rem;
+            color: #595959;
+        }
+
+        .error {
+            color: #CA3622;
+            font-weight: 600;
+        }
+
+        .input.error {
+            border: 1px solid #CA3622;
+            font-weight: 400;
+        }
+
+        .input.error:active,
+        .input.error:focus {
+            color: #000;
+        }
+
+        .locInput {
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+            border: none;
+            padding: 0;
+            flex: 1;
+        }
+
+        .h-370 {
+            height: 370px;
+            overflow: hidden;
+        }
+
+        .mb-24 {
+            margin-bottom: 24px !important;
+        }
+
+        .mb-64 {
+            margin-bottom: 4rem !important;
+        }
+
+        .cols {
+            display: flex;
+            margin-bottom: 3rem;
+            gap: 2rem;
+        }
+
+        .noGap {
+            gap: 0;
+        }
+
+        .queryResult {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 50%;
+            border-radius: 6px;
+        }
+
+        .noBorder {
+            border: none;
+        }
+
+        .blue {
+            background-color: #f0f8fd;
+        }
+
+        .uvForm {
+            display: flex;
+            width: 100%;
+            height: 100px;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .leftBlock {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            gap: 1rem;
+            /* margin-bottom: 3.5rem; */
+        }
+
+        .rightBlock {
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            gap: 1rem;
+        }
+
+        .halfWidth {
+            width: 50%;
+        }
+
+        #uvIndex,
+        #uvTitle {
+            margin-bottom: 0;
+            line-height: 140%;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 10px;
+            margin-bottom: .5rem;
+        }
+
+        .green {
+            background-color: #ADDA9A !important;
+        }
+
+        .yellow {
+            background-color: #ffe164 !important;
+        }
+
+        .orange {
+            background-color: #FF8F4D !important;
+        }
+
+        .red {
+            background-color: #F05E4A !important;
+        }
+
+        .blue {
+            background-color: #C2E5F8 !important;
+        }
+
+        .grey {
+            background-color: #F7F7F8 !important;
+        }
+
+        .uvIndexContainer {
+            display: flex;
+            gap: .75rem;
+            align-items: center;
+            margin-right: auto;
+            border-radius: 100px;
+            padding-right: 1rem;
+            background-color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .uvResult {
+            display: flex;
+            flex-direction: column;
+            margin: 1.5rem 0 0 0;
+            gap: .5rem;
+            background-color: #F7F7F8;
+            padding: 2rem;
+            border-radius: 6px;
+        }
+
+        .uvPic {
+            margin-top: -200px;
+        }
+
+        .uvlevel {
+            font-size: .875rem;
+            font-weight: 500;
+        }
+
+        #uvIndex {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .uvIcon {
+            padding: .5rem;
+            border-radius: 100px;
+        }
+
+        .uvlevel {
+            margin-left: auto;
+            margin-bottom: 0 !important;
+            padding: .25rem .5rem;
+            border-radius: 6px;
+        }
+
+        .widgetTop {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .uvbar {
+            width: 100%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+        }
+
+        .bar {
+            height: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .barvalue {
+            flex: 1;
+            background-color: #d6d6d6;
+            border-radius: 4px;
+        }
+
+        .initialTitle {
+            padding: 4rem 2rem;
+            background-color: #F0F8FD;
+            border-radius: 6px;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .innerContainer {
+                padding: 0 .75rem;
+            }
+
+            .input {
+                flex: auto;
+            }
+
+            .borderBlock {
+                padding: 1rem
+            }
+
+            .queryResult {
+                width: 100%;
+            }
+
+            .leftBlock {
+                width: 100%;
+                flex-direction: column;
+                margin: 0;
+            }
+
+            .uvForm {
+                width: 100%;
+                flex-direction: column;
+                margin: 0 0 0 0;
+            }
+
+            .cols {
+                flex-direction: column;
+                margin-bottom: 0;
+            }
+
+            .flex-reverse {
+                flex-direction: column-reverse;
+            }
+
+            .h-370 {
+                height: auto;
+            }
+
+            .p-24 {
+                padding: 1rem;
+            }
+
+            .noPadding {
+                padding: 0 !important;
+            }
+
+            .uvPic {
+                margin-top: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .imgContainer {
+                height: 250px;
+                object-fit: cover;
+            }
+
+            .halfWidth {
+                width: 100%;
+            }
+
+            .uvForm {
+                height: auto;
+            }
+
+            .uvResult {
+                padding: 1rem 1rem 1.5rem 1rem;
+            }
+
+            .noGap {
+                gap: 1rem;
+            }
+
+            .bar {
+                height: .75rem;
+                gap: 0.25rem;
+            }
+        }
+
+        @media only screen and (min-width: 601px) and (max-width:1259px) {
+            .innerContainer {
+                padding: 0 .75rem;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="main" class="container ">
+        <div class="innerContainer">
+            <!-- UV Varsel -->
+            <div class="flex cols gap-2 mb-64">
+                <div class="leftBlock gap-2">
+                    <h2 class="noMargin">Se UV-varselet i din nærmeste by</h2>
+                    <form class="uvForm" id="searchUV">
+                        <fieldset class="locInput">
+                            <input class="input" id="inp" type="text" name="search" placeholder="Skriv inn bynavn" />
+                            <label for="inp" id="inpLabel" class="formLabel">Søk etter din nærmeste by</label>
+                        </fieldset>
+                        <input class="btnForm" data-gtm-event="iframe" data-gtm-category="ux" data-gtm-action="button"
+                            data-gtm-label="uv-varsel" type="submit" name="submit" value="Se varsel" />
+                    </form>
+                </div>
+                <div id="queryResult" class="queryResult">
+                    <h3 id="uvTitle" class="textCenter initialTitle">Søk etter og se UV-indeks for ditt nærområde.</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //Store form data
+        const form = document.forms["searchUV"];
+        let container = false;
+
+        //atob("YkJJTFBqOGV5ME5TNjNqWUdsQ1l6UVFwcUJ0NWFyYTk=")
+        const peloton = "aPvjzXtDpJEvYp3SB4sHSoDULatS7KwF";
+
+        //HandleSubmit event on location UV Index form
+        const submitSearch = async (e) => {
+            e.preventDefault();
+            try {
+                const city = form.search.value;
+                console.log(city);
+                const locKey = await getLocationKey(city);
+                //console.log(locKey);
+                const uv = await getUV(locKey);
+                listUVResult(uv, city);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        //Execute API call on form submit
+        form.addEventListener("submit", submitSearch)
+
+        //Get location key from search query
+        const getLocationKey = async (searchTerm) => {
+            //Store form input for location
+            const location = searchTerm;
+            //console.log(location);
+
+            //Endpoint to location key for search input location
+            const endpoint = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${peloton}&q=${location}&language=no&details=true`;
+            try {
+                const response = await fetch(endpoint);
+                if (response.ok) {
+                    const result = await response.json();
+                    return result;
+                }
+            } catch (error) {
+                throw new Error("Something failed");
+            }
+        }
+
+        //Get UV Index for location "c"
+        const getUV = async (c) => {
+            let locationKey;
+            const input = document.getElementById("inp");
+            const inputLabel = document.getElementById("inpLabel");
+            console.log(c);
+            if (c.length > 0) {
+                if (inputLabel.classList.contains("error")) {
+                    input.classList.remove("error");
+                    inputLabel.classList.remove("error");
+                    inputLabel.innerHTML = "Søk etter din nærmeste by";
+                }
+                locationKey = c[0].Key;
+                console.log(locationKey);
+                const endpoint = `https://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=${peloton}&language=no&details=true&metric=true`;
+                try {
+                    const response = await fetch(endpoint);
+                    if (response.ok) {
+                        const result = await response.json();
+                        return result;
+                    }
+                } catch (err) {
+                    throw new Error("Something failed");
+                }
+            } else {
+                //Input validation on form input - frontend feedback + style
+                const error = "Fant ikke stedet du søkte etter. Prøv nærmeste by. f.eks Oslo";
+                inputLabel.classList.add("error");
+                inputLabel.innerHTML = error;
+                input.classList.add("error");
+                throw new Error(error);
+            }
+        }
+
+        //Show UV listing for location
+        const listUVResult = (obj, city) => {
+            let main = document.getElementById("queryResult");
+
+            //Prevent doubling up the frontend output
+            if (container) {
+                main.removeChild(container);
+            }
+
+            //Create container for API call result
+            container = document.createElement("div");
+            //Add class to container
+            container.setAttribute("class", "uvResult")
+            //Add container to main flow
+            main.appendChild(container);
+
+            //Change h3 content from UV to "UV-stråling rundt" + remove initial styling
+            let h3 = document.getElementById("uvTitle");
+            h3.classList.remove("initialTitle");
+            h3.innerText = `UV-indeks rundt ${city}:`;
+
+            //Create top bar for UV index widget
+            const widgetTop = document.createElement("div");
+            widgetTop.setAttribute("class", "widgetTop");
+
+            //Creates labels correlating to the correct infoblock section
+            const level = document.createElement("p");
+            level.setAttribute("class", "uvlevel");
+
+            //Store level text values
+            let levelText;
+            const uvValues = {
+                low: "Lav stråling",
+                mid: "Middels stråling",
+                high: "Høy stråling",
+                xhigh: "Ekstra høy stråling",
+                extreme: "Ekstrem stråling"
+            };
+
+            //Check that the data and index in return object actually exists or return error
+            if (obj.DailyForecasts && obj.DailyForecasts.length && obj.DailyForecasts[0].AirAndPollen && obj.DailyForecasts[0].AirAndPollen.length > 5) {
+                //Data from return object
+                const value = obj.DailyForecasts[0].AirAndPollen[5].Value;
+
+                //Create bar and container for UV varsel
+                const barContainer = document.createElement("div");
+                const bar = document.createElement("div");
+                const barValue0 = document.createElement("div");
+                const barValue1 = document.createElement("div");
+                const barValue2 = document.createElement("div");
+                const barValue3 = document.createElement("div");
+                const barValue4 = document.createElement("div");
+
+                //Add class for barContainer and bar
+                barContainer.setAttribute("class", "uvbar");
+                bar.setAttribute("class", "bar");
+
+                //Add class .barvalue for the bar elements
+                barValue0.setAttribute("class", "barvalue");
+                barValue1.setAttribute("class", "barvalue");
+                barValue2.setAttribute("class", "barvalue");
+                barValue3.setAttribute("class", "barvalue");
+                barValue4.setAttribute("class", "barvalue");
+
+                //Import UV icon and add class
+                const uvIcon = new Image(24, 24);
+                uvIcon.src = "img/ic-uv.svg";
+                uvIcon.setAttribute("class", "uvIcon");
+
+                //Set UV-Index values + levelbadge value + Add color to bar and icon background
+                if (value < 3) {
+                    levelText = document.createTextNode(uvValues.low);
+                    level.appendChild(levelText);
+                    level.classList.add("blue")
+                    barValue0.classList.add("blue");
+                    uvIcon.classList.add("blue");
+                } else if (value < 6) {
+                    levelText = document.createTextNode(uvValues.mid);
+                    level.appendChild(levelText);
+                    level.classList.add("green");
+                    barValue0.classList.add("green");
+                    barValue1.classList.add("green");
+                    uvIcon.classList.add("green");
+                } else if (value < 8) {
+                    levelText = document.createTextNode(uvValues.high);
+                    level.appendChild(levelText);
+                    level.classList.add("yellow");
+                    barValue0.classList.add("yellow");
+                    barValue1.classList.add("yellow");
+                    barValue2.classList.add("yellow");
+                    uvIcon.classList.add("yellow");
+                } else if (value < 11) {
+                    levelText = document.createTextNode(uvValues.xhigh);
+                    level.appendChild(levelText);
+                    level.classList.add("orange");
+                    barValue0.classList.add("orange");
+                    barValue1.classList.add("orange");
+                    barValue2.classList.add("orange");
+                    barValue3.classList.add("orange");
+                    uvIcon.classList.add("orange");
+                } else {
+                    levelText = document.createTextNode(uvValues.extreme);
+                    level.appendChild(levelText);
+                    level.classList.add("red");
+                    barValue0.classList.add("red");
+                    barValue1.classList.add("red");
+                    barValue2.classList.add("red");
+                    barValue3.classList.add("red");
+                    barValue4.classList.add("red");
+                    uvIcon.classList.add("red");
+                };
+
+                //Add all bars to the bar, and adding bar to barContainer.
+                bar.appendChild(barValue0);
+                bar.appendChild(barValue1);
+                bar.appendChild(barValue2);
+                bar.appendChild(barValue3);
+                bar.appendChild(barValue4);
+                barContainer.appendChild(bar);
+
+
+
+                //Create UV Index top widget element with uv index and icon in rounded block
+                const uvIndexContainer = document.createElement("div");
+                uvIndexContainer.setAttribute("class", "uvIndexContainer")
+
+                //Create h3 uv index value output
+                const uvIndex = document.createElement("h3");
+                uvIndex.setAttribute("id", "uvIndex");
+
+                //Add UV index value to h3   
+                uvIndex.append("UV " + value);
+
+                //Add index and icon to the rounded element
+                uvIndexContainer.appendChild(uvIcon);
+                uvIndexContainer.appendChild(uvIndex);
+
+                //Add widgetTop to uv index container
+                container.appendChild(widgetTop);
+
+                //Add the rounded icon+uvIndex block to the widgetTop
+                widgetTop.appendChild(uvIndexContainer);
+
+                //Add the level badge to the widgetTop;
+                widgetTop.appendChild(level);
+
+                //Add bar to container
+                container.appendChild(bar);
+            } else {
+                throw new Error("Did not receive any data for that location");
+            }
+        }
+    </script>
+</body>
