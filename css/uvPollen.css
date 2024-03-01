@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
+    width: 100%;
     border-radius: 6px;
 }
 
@@ -27,9 +27,8 @@
 .uvForm {
     display: flex;
     width: 100%;
-    height: 100px;
+    height: auto;
     gap: 1rem;
-    margin-bottom: 2rem;
 }
 
 .leftBlock {
@@ -43,7 +42,7 @@
 .rightBlock {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 50%;
     gap: 1rem;
 }
 
@@ -112,6 +111,13 @@
     margin-top: -200px;
 }
 
+.uvRightColPic {
+    height: 320px;
+    object-fit: cover;
+    object-position: 0% 50%;
+    border-radius: 6px;
+}
+
 .uvlevel {
     font-size: .875rem;
     font-weight: 500;
@@ -168,10 +174,10 @@
 }
 
 @media only screen and (max-width: 800px) {
-    .queryResult {
+    .rightBlock {
         width: 100%;
     }
-    
+
     .leftBlock {
         width: 100%;
         flex-direction: column;
@@ -236,5 +242,17 @@
     .bar {
         height: .75rem;
         gap: 0.25rem;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    .initialTitle {
+        padding: 1rem;
     }
 }

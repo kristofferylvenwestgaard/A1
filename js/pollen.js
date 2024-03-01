@@ -3,7 +3,7 @@ const form = document.forms["searchUV"];
 let container = false;
 
 //atob("YkJJTFBqOGV5ME5TNjNqWUdsQ1l6UVFwcUJ0NWFyYTk=");
-const peloton = "aPvjzXtDpJEvYp3SB4sHSoDULatS7KwF";
+const peloton = "bBILPj8ey0NS63jYGlCYzQQpqBt5ara9";
 
 //HandleSubmit event on location UV Index form
 const submitSearch = async (e) => {

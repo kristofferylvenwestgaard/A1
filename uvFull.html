@@ -3,554 +3,579 @@
 <head>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta charset="UTF-8" />
+    <meta name="robots" content="noindex,follow" />
+	<title>UV Indeks</title>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5F2S7HPJ');</script>
+	<!-- End Google Tag Manager -->
     <style>
-        body {
-            height: 400vh;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            box-sizing: border-box;
-        }
+/* Main css */
 
-        .container {
-            max-width: 1260px;
-            width: 100%;
-            margin: 0 auto;
-            scroll-behavior: smooth;
-        }
+body {
+    height: 400vh;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-        .flex {
-            display: flex;
-        }
+.container {
+    max-width: 1260px;
+    width: 100%;
+    margin: 0 auto;
+    scroll-behavior: smooth;
+}
 
-        .flex-col {
-            flex-direction: column;
-        }
+.flex {
+    display: flex;
+}
 
-        .gap-2 {
-            gap: 2rem !important;
-        }
+.flex-col {
+    flex-direction: column;
+}
 
-        .flex-1 {
-            flex: 1;
-        }
+.gap-2 {
+    gap: 2rem !important;
+}
 
-        .v-center {
-            align-items: center;
-        }
+.flex-1 {
+    flex: 1;
+}
 
-        .gap-sm {
-            gap: .75rem;
-        }
+.v-center {
+    align-items: center;
+}
 
-        .gap-md {
-            gap: 1rem;
-        }
+.gap-sm {
+    gap: .75rem;
+}
 
-        .top-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            object-position: center;
-        }
+.gap-md {
+    gap: 1rem;
+}
+
+.top-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
 
 
-        p {
-            font-size: 1rem;
-            line-height: 150%;
-            margin: .5rem 0 1rem 0;
-        }
+p {
+    font-size: 1rem;
+    line-height: 150%;
+    margin: .5rem 0 1rem 0;
+}
 
-        h1 {
-            font-size: 2rem;
-            margin: 3rem 0 2rem 0;
-        }
+h1 {
+    font-size: 2rem;
+    margin: 3rem 0 2rem 0;
+}
 
-        h2 {
-            font-size: 1.5rem;
-            margin: 0 0 1.5rem 0;
-        }
+h2 {
+    font-size: 1.5rem;
+    margin: 0 0 1.5rem 0;
+}
 
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-top: 0;
-        }
+h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 0;
+}
 
-        button {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 500;
-            font-size: .85rem;
-        }
+button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: .85rem;
+}
 
-        a {
-            color: #000;
-        }
+a {
+    color: #000;
+}
 
-        a:hover {
-            text-decoration: none;
-        }
+a:hover {
+    text-decoration: none;
+}
 
-        .cta {
-            display: flex;
-            gap: .5rem;
-            cursor: pointer;
-            justify-content: center;
-            align-items: center;
-            padding: .65rem 1rem;
-            border: none;
-            border-radius: 6px;
-            color: #fff;
-            margin-top: .5rem;
-        }
+.cta {
+    display: flex;
+    gap: .5rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: .65rem 1rem;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    margin-top: .5rem;
+}
 
-        .secondaryOutline {
-            border: 2px solid #0d2880;
-            background-color: transparent;
-            color: #0d2880;
-            max-height: 44.5px;
-        }
+.secondaryOutline {
+    border: 2px solid #0d2880;
+    background-color: transparent;
+    color: #0d2880;
+    max-height: 44.5px;
+}
 
-        .fullwidth {
-            width: 100%;
-        }
+.fullwidth {
+    width: 100%;
+}
 
-        .primary {
-            background-color: #1b6613;
-        }
+.primary {
+    background-color: #1b6613; 
+}
 
-        .secondary {
-            background-color: #0d2880;
-        }
+.secondary {
+    background-color: #0d2880;
+}
 
-        .lightGreen {
-            background-color: #F3FCF2;
-        }
+.lightGreen {
+    background-color: #F3FCF2;
+}
 
-        .lightGrey {
-            background-color: #F7F7F8;
-        }
+.lightGrey {
+    background-color: #F7F7F8;
+}
 
-        /* Sticky */
-        .sticky {
-            position: fixed;
-            bottom: 0;
-            height: auto;
-            width: 100%;
-            background-color: #ededed;
-            padding: 1rem;
-        }
+/* Sticky */
+.sticky {
+    position: fixed;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    background-color: #ededed;
+    padding: 1rem;
+}
 
-        .hidden {
-            display: none;
-        }
+/* Container header-revscroll top margin */
+.headerRevscroll {
+    margin-top: 80px;
+}
 
-        /* Container header-revscroll top margin */
-        .headerRevscroll {
-            margin-top: 80px;
-        }
+.input {
+    padding: 0 1rem;
+    height: 50px;
+    border-radius: 6px;
+    border: 1px solid #d6d6d6;
+    font-size: 1rem;
+}
 
-        .input {
-            padding: 0 1rem;
-            height: 50px;
-            border-radius: 6px;
-            border: 1px solid #d6d6d6;
-            font-size: 1rem;
-        }
+.btnForm {
+    padding: 0 1rem;
+    height: 50px;
+    border-radius: 6px;
+    background-color: #1b6613;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+}
 
-        .btnForm {
-            padding: 0 1rem;
-            height: 50px;
-            border-radius: 6px;
-            background-color: #1b6613;
-            color: #fff;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            font-weight: 600;
-        }
+.btnForm:hover {
+    background-color: #264122;
+}
 
-        .btnForm:hover {
-            background-color: #264122;
-        }
+.borderRadius {
+    border-radius: 6px;
+    overflow: hidden;
+}
 
-        .borderRadius {
-            border-radius: 6px;
-            overflow: hidden;
-        }
+.borderBlock {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    padding: 2.5rem;
+    border: 1px solid #d6d6d6;
+}
 
-        .borderBlock {
-            display: flex;
-            flex-direction: column;
-            margin: 2rem 0;
-            padding: 2.5rem;
-            border: 1px solid #d6d6d6;
-        }
+.noPadding {
+    padding: 0;
+}
 
-        .noPadding {
-            padding: 0;
-        }
+.noMargin {
+    margin: 0 !important;
+}
 
-        .noMargin {
-            margin: 0 !important;
-        }
+.p-24 {
+    padding: 3rem;
+}
 
-        .p-24 {
-            padding: 3rem;
-        }
+.flex-1 {
+    flex: 1;
+}
 
-        .flex-1 {
-            flex: 1;
-        }
+.textCenter {
+    text-align: center;
+}
 
-        .textCenter {
-            text-align: center;
-        }
+.innerContainer {
+    padding: 0;
+    overflow: hidden;
+}
 
-        .innerContainer {
-            padding: 0;
-            overflow: hidden;
-        }
+table, th, td {
+    border: 1px solid #d6d6d6;
+    border-collapse: collapse;
+}
 
-        table,
-        th,
-        td {
-            border: 1px solid #d6d6d6;
-            border-collapse: collapse;
-        }
+table {
+    width: 100%;
+}
 
-        table {
-            width: 100%;
-        }
+td {
+    padding: 1rem;
+}
 
-        td {
-            padding: 1rem;
-        }
+.inline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .inline {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.label {
+    padding: .5rem;
+    font-size: .875rem;
+    font-weight: 500;
+    margin-top: 0;
+}
 
-        .label {
-            padding: .5rem;
-            font-size: .875rem;
-            font-weight: 500;
-            margin-top: 0;
-        }
+.formLabel {
+    font-size: .75rem;
+    color: #595959;
+}
 
-        .formLabel {
-            font-size: .75rem;
-            color: #595959;
-        }
+.error {
+    color: #CA3622;
+    font-weight: 600;
+}
 
-        .error {
-            color: #CA3622;
-            font-weight: 600;
-        }
+.input.error {
+    border: 1px solid #CA3622;
+    font-weight: 400;
+}
 
-        .input.error {
-            border: 1px solid #CA3622;
-            font-weight: 400;
-        }
+.input.error:active, .input.error:focus {
+    color:#000;
+}
 
-        .input.error:active,
-        .input.error:focus {
-            color: #000;
-        }
+.locInput {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    border: none;
+    padding: 0;
+    flex: 1;
+}
 
-        .locInput {
-            display: flex;
-            flex-direction: column;
-            gap: .25rem;
-            border: none;
-            padding: 0;
-            flex: 1;
-        }
+.h-370 {
+    height: 370px;
+    overflow: hidden;
+}
 
-        .h-370 {
-            height: 370px;
-            overflow: hidden;
-        }
+.mb-24 {
+    margin-bottom: 24px !important;
+}
 
-        .mb-24 {
-            margin-bottom: 24px !important;
-        }
+.mb-64 {
+    margin-bottom: 4rem !important;
+}
 
-        .mb-64 {
-            margin-bottom: 4rem !important;
-        }
+
 
         .cols {
-            display: flex;
-            margin-bottom: 3rem;
-            gap: 2rem;
-        }
+    display: flex;
+    margin-bottom: 3rem;
+    gap: 2rem;
+}
 
-        .noGap {
-            gap: 0;
-        }
+.noGap {
+    gap: 0;
+}
 
-        .queryResult {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 50%;
-            border-radius: 6px;
-        }
+.queryResult {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    border-radius: 6px;
+}
 
-        .noBorder {
-            border: none;
-        }
+.noBorder {
+    border: none;
+}
 
-        .blue {
-            background-color: #f0f8fd;
-        }
+.blue {
+    background-color: #f0f8fd;
+}
 
-        .uvForm {
-            display: flex;
-            width: 100%;
-            height: 100px;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
+.uvForm {
+    display: flex;
+    width: 100%;
+    height: auto;
+    gap: 1rem;
+}
 
-        .leftBlock {
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-            gap: 1rem;
-            /* margin-bottom: 3.5rem; */
-        }
+.leftBlock {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1rem;
+    /* margin-bottom: 3.5rem; */
+}
 
-        .rightBlock {
-            display: flex;
-            flex-direction: column;
-            width: 60%;
-            gap: 1rem;
-        }
+.rightBlock {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1rem;
+}
 
-        .halfWidth {
-            width: 50%;
-        }
+.halfWidth {
+    width: 50%;
+}
 
-        #uvIndex,
-        #uvTitle {
-            margin-bottom: 0;
-            line-height: 140%;
-        }
+#uvIndex, #uvTitle {
+    margin-bottom: 0;
+    line-height: 140%;
+}
 
-        .dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 10px;
-            margin-bottom: .5rem;
-        }
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    margin-bottom: .5rem;
+}
 
-        .green {
-            background-color: #ADDA9A !important;
-        }
+.green {
+    background-color: #ADDA9A !important;
+}
 
-        .yellow {
-            background-color: #ffe164 !important;
-        }
+.yellow {
+    background-color: #ffe164 !important;
+}
 
-        .orange {
-            background-color: #FF8F4D !important;
-        }
+.orange {
+    background-color: #FF8F4D !important;
+}
 
-        .red {
-            background-color: #F05E4A !important;
-        }
+.red {
+    background-color: #F05E4A !important;
+}
 
-        .blue {
-            background-color: #C2E5F8 !important;
-        }
+.blue {
+    background-color: #C2E5F8 !important;
+}
 
-        .grey {
-            background-color: #F7F7F8 !important;
-        }
+.grey {
+    background-color: #F7F7F8 !important;
+}
 
-        .uvIndexContainer {
-            display: flex;
-            gap: .75rem;
-            align-items: center;
-            margin-right: auto;
-            border-radius: 100px;
-            padding-right: 1rem;
-            background-color: #fff;
-            margin-bottom: 1rem;
-        }
+.uvIndexContainer {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+    margin-right: auto;
+    border-radius: 100px;
+    padding-right: 1rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+}
 
-        .uvResult {
-            display: flex;
-            flex-direction: column;
-            margin: 1.5rem 0 0 0;
-            gap: .5rem;
-            background-color: #F7F7F8;
-            padding: 2rem;
-            border-radius: 6px;
-        }
+.uvResult {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0 0 0;
+    gap: .5rem;
+    background-color: #F7F7F8;
+    padding: 2rem;
+    border-radius: 6px;
+}
 
-        .uvPic {
-            margin-top: -200px;
-        }
+.uvPic {
+    margin-top: -200px;
+}
 
-        .uvlevel {
-            font-size: .875rem;
-            font-weight: 500;
-        }
+.uvRightColPic {
+    height: 320px;
+    object-fit: cover;
+    object-position: 0% 50%;
+    border-radius: 6px;
+}
 
-        #uvIndex {
-            font-size: 1rem;
-            font-weight: 700;
-        }
+.uvlevel {
+    font-size: .875rem;
+    font-weight: 500;
+}
 
-        .uvIcon {
-            padding: .5rem;
-            border-radius: 100px;
-        }
+#uvIndex {
+    font-size: 1rem;
+    font-weight: 700;
+}    
 
-        .uvlevel {
-            margin-left: auto;
-            margin-bottom: 0 !important;
-            padding: .25rem .5rem;
-            border-radius: 6px;
-        }
+.uvIcon {
+    padding: .5rem;
+    border-radius: 100px;
+}
 
-        .widgetTop {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
+.uvlevel {
+    margin-left: auto;
+    margin-bottom: 0 !important;
+    padding: .25rem .5rem;
+    border-radius: 6px;
+}
 
-        .uvbar {
-            width: 100%;
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            gap: .25rem;
-        }
+.widgetTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 
-        .bar {
-            height: 1rem;
-            display: flex;
-            gap: 0.5rem;
-            border-radius: 6px;
-        }
+.uvbar {
+    width: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
 
-        .barvalue {
-            flex: 1;
-            background-color: #d6d6d6;
-            border-radius: 4px;
-        }
+.bar {
+    height: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    border-radius: 6px;
+}
 
-        .initialTitle {
-            padding: 4rem 2rem;
-            background-color: #F0F8FD;
-            border-radius: 6px;
-        }
+.barvalue {
+    flex: 1;
+    background-color: #d6d6d6;
+    border-radius: 4px;
+}
 
-        @media only screen and (max-width: 800px) {
-            .innerContainer {
-                padding: 0 .75rem;
-            }
+.initialTitle {
+    padding: 4rem 2rem;
+    background-color: #F0F8FD;
+    border-radius: 6px;
+}
 
-            .input {
-                flex: auto;
-            }
+@media only screen and (max-width: 800px) {
+    .rightBlock {
+        width: 100%;
+    }
 
-            .borderBlock {
-                padding: 1rem
-            }
+    .leftBlock {
+        width: 100%;
+        flex-direction: column;
+        margin: 0;
+    }
+    
+    .uvForm {
+        width: 100%;
+        flex-direction: column;
+        margin: 0 0 0 0;
+    }
 
-            .queryResult {
-                width: 100%;
-            }
+    .cols {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
 
-            .leftBlock {
-                width: 100%;
-                flex-direction: column;
-                margin: 0;
-            }
+    .flex-reverse {
+        flex-direction: column-reverse;
+    }
 
-            .uvForm {
-                width: 100%;
-                flex-direction: column;
-                margin: 0 0 0 0;
-            }
+    .h-370 {
+        height: auto;
+    }
 
-            .cols {
-                flex-direction: column;
-                margin-bottom: 0;
-            }
+    .p-24 {
+        padding: 1rem;
+    }
 
-            .flex-reverse {
-                flex-direction: column-reverse;
-            }
+    .noPadding {
+        padding: 0 !important;
+    }
 
-            .h-370 {
-                height: auto;
-            }
+    .uvPic {
+        margin-top: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
 
-            .p-24 {
-                padding: 1rem;
-            }
+    .imgContainer {
+        height: 250px;
+        object-fit: cover;
+    }
 
-            .noPadding {
-                padding: 0 !important;
-            }
+    .halfWidth {
+        width: 100%;
+    }
 
-            .uvPic {
-                margin-top: 0;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
+    .uvForm {
+        height: auto;
+    }
 
-            .imgContainer {
-                height: 250px;
-                object-fit: cover;
-            }
+    .uvResult {
+        padding: 1rem 1rem 1.5rem 1rem;
+    }
 
-            .halfWidth {
-                width: 100%;
-            }
+    .noGap {
+        gap: 1rem;
+    }
 
-            .uvForm {
-                height: auto;
-            }
+    .bar {
+        height: .75rem;
+        gap: 0.25rem;
+    }
 
-            .uvResult {
-                padding: 1rem 1rem 1.5rem 1rem;
-            }
+    .hide {
+        display: none;
+    }
 
-            .noGap {
-                gap: 1rem;
-            }
+    .innerContainer{
+        padding: 0 .75rem;
+    }
 
-            .bar {
-                height: .75rem;
-                gap: 0.25rem;
-            }
-        }
+    .input {
+        flex: auto;
+    }
 
-        @media only screen and (min-width: 601px) and (max-width:1259px) {
-            .innerContainer {
-                padding: 0 .75rem;
-            }
-        }
+    .borderBlock {
+        padding: 1rem
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    .initialTitle {
+        padding: 1rem;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width:1259px) {
+    .innerContainer{
+        padding: 0 .75rem;
+    }
+}
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5F2S7HPJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="main" class="container ">
         <div class="innerContainer">
             <!-- UV Varsel -->
-            <div class="flex cols gap-2 mb-64">
+            <div class="flex cols gap-2">
                 <div class="leftBlock gap-2">
                     <h2 class="noMargin">Se UV-varselet i din nærmeste by</h2>
                     <form class="uvForm" id="searchUV">
@@ -558,12 +583,15 @@
                             <input class="input" id="inp" type="text" name="search" placeholder="Skriv inn bynavn" />
                             <label for="inp" id="inpLabel" class="formLabel">Søk etter din nærmeste by</label>
                         </fieldset>
-                        <input class="btnForm" data-gtm-event="iframe" data-gtm-category="ux" data-gtm-action="button"
-                            data-gtm-label="uv-varsel" type="submit" name="submit" value="Se varsel" />
+                        <button class="btnForm" data-gtm-event="iframe" data-gtm-category="ux" data-gtm-action="button"
+                            data-gtm-label="uv-varsel" type="submit" name="submit" value="Se varsel">Se varsel</button>
                     </form>
+                    <div id="queryResult" class="queryResult">
+                        <h3 id="uvTitle" class="textCenter initialTitle">Søk etter og se UV-indeks for ditt nærområde.</h3>
+                    </div>       
                 </div>
-                <div id="queryResult" class="queryResult">
-                    <h3 id="uvTitle" class="textCenter initialTitle">Søk etter og se UV-indeks for ditt nærområde.</h3>
+                <div class="rightBlock hidden">
+                    <img class="uvRightColPic" src="img/sunset3.jpg" alt="sun" />
                 </div>
             </div>
         </div>
@@ -574,7 +602,7 @@
         let container = false;
 
         //atob("YkJJTFBqOGV5ME5TNjNqWUdsQ1l6UVFwcUJ0NWFyYTk=")
-        const peloton = "aPvjzXtDpJEvYp3SB4sHSoDULatS7KwF";
+        const peloton = atob("YkJJTFBqOGV5ME5TNjNqWUdsQ1l6UVFwcUJ0NWFyYTk=");
 
         //HandleSubmit event on location UV Index form
         const submitSearch = async (e) => {
@@ -713,7 +741,7 @@
 
                 //Import UV icon and add class
                 const uvIcon = new Image(24, 24);
-                uvIcon.src = "img/ic-uv.svg";
+                uvIcon.src = "https://www.apotek1.no/cmsimage/.content/B2C-bilder/ikoner/andre-ikoner/uv-icon.svg";
                 uvIcon.setAttribute("class", "uvIcon");
 
                 //Set UV-Index values + levelbadge value + Add color to bar and icon background
