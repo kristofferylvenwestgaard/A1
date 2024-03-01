@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/banner.css" >
     <link rel="stylesheet" href="css/main.css" >
     <link rel="stylesheet" href="css/header.css"> 
-    <link rel="stylesheet" href="css/uvPollen.css">
+    <link rel="stylesheet" href="css/pollen.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
             <div class="flex cols gap-2 mb-64">
                 <div class="leftBlock gap-2">
                     <h2 class="noMargin">Se pollenvarselet i din nærmeste by</h2>
-                    <form class="uvForm" id="searchUV">
+                    <form class="pollenForm" id="searchPollen">
                         <fieldset class="locInput">
                             <input class="input" id="inp" type="text" name="search" placeholder="Skriv inn bynavn" />
                             <label for="inp" id="inpLabel" class="formLabel">Søk etter din nærmeste by</label>
@@ -32,18 +32,18 @@
                         <input class="btnForm" data-gtm-event="iframe" data-gtm-category="ux" data-gtm-action="button" data-gtm-label="uv-varsel" type="submit" name="submit" value="Se varsel" />
                     </form>       
                     <div id="queryResult" class="queryResult">
-                        <h3 id="uvTitle" class="textCenter initialTitle">Søk etter og se pollenvarsel for ditt nærområde.</h3>
+                        <h3 id="pollenTitle" class="textCenter initialTitle">Søk etter og se pollenvarsel for ditt nærområde.</h3>
                     </div>       
                 </div>
                 <div class="rightBlock hidden">
-                    <img class="uvRightColPic" src="img/sunset3.jpg" alt="sun" />
+                    <img class="pollenRightColPic" src="img/sunset3.jpg" alt="sun" />
                 </div>
             </div>
             <h2 class="noMargin">Forklaring av Pollen-index</h2>
             <div id="low" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder grey">
                 <div class="cols noMargin noGap">
                     <div class="leftBlock halfWidth imgContainer">
-                        <img class="uvPic" src="img/sunset1.jpg" alt="sunset" />
+                        <img class="pollenPic" src="img/sunset1.jpg" alt="sunset" />
                     </div>
                     <div class="flex-1 p-24">
                         <h3>UV Indeks 0-2</h3>
@@ -70,7 +70,7 @@
                         </p>
                     </div>
                     <div class="rightBlock halfWidth imgContainer">
-                        <img class="uvPic" src="img/sunset2.jpg" alt="sunset" />
+                        <img class="pollenPic" src="img/sunset2.jpg" alt="sunset" />
                     </div>
                 </div>
             </div>
@@ -107,14 +107,14 @@
                         </p>
                     </div>
                     <div class="rightBlock halfWidth imgContainer">
-                        <img class="uvPic" src="img/sunset4.jpg" alt="sunset" />
+                        <img class="pollenPic" src="img/sunset4.jpg" alt="sunset" />
                     </div>
                 </div>
             </div> 
             <div id="extreme" class="borderBlock noPadding borderRadius h-370 mb-64 noBorder grey">
                 <div class="cols noMargin">
                     <div class="leftBlock halfWidth imgContainer noGap">
-                        <img class="uvPic" src="img/sunset5.jpg" alt="sunset" />
+                        <img class="pollenPic" src="img/sunset5.jpg" alt="sunset" />
                     </div>
                     <div class="flex-1 p-24">
                         <h3>UV Indeks 11+</h3>

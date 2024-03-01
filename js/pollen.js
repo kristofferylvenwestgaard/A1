@@ -1,6 +1,7 @@
 //Store form data
-const form = document.forms["searchUV"];
-let container = false;
+const form = document.forms["searchPollen"];
+let containerTree = false;
+let containerGrass = false;
 
 //atob("YkJJTFBqOGV5ME5TNjNqWUdsQ1l6UVFwcUJ0NWFyYTk=");
 const peloton = "bBILPj8ey0NS63jYGlCYzQQpqBt5ara9";
@@ -13,8 +14,8 @@ const submitSearch = async (e) => {
         //console.log(city);
         const locKey = await getLocationKey(city);
         //console.log(locKey);
-        const uv = await getUV(locKey);
-        listUVResult(uv, city);
+        const pollen = await getPollen(locKey);
+        listPollenResult(pollen, city);
     } catch (error) {
        console.log(error);
     }
@@ -43,7 +44,7 @@ const getLocationKey = async (searchTerm) => {
 }
 
 //Get UV Index for location "c"
-const getUV = async (c) => {
+const getPollen = async (c) => {
     let locationKey;
     const input = document.getElementById("inp");
     const inputLabel = document.getElementById("inpLabel");
@@ -77,43 +78,57 @@ const getUV = async (c) => {
 }
 
 //Show UV listing for location
-const listUVResult = (obj, city) => {
+const listPollenResult = (obj, city) => {
     let main = document.getElementById("queryResult");
 
     //Prevent doubling up the frontend output
-    if(container) {
-        main.removeChild(container);
+    if(containerTree || containerGrass) {
+        main.removeChild(containerTree);
+        main.removeChild(containerGrass);
     }
 
     //Create container for API call result
-    container = document.createElement("div");
+    containerTree = document.createElement("div");
+    containerGrass = document.createElement("div");
     //Add class to container
-    container.setAttribute("class", "uvResult")
+    containerTree.setAttribute("class", "pollenResult")
+    containerGrass.setAttribute("class", "pollenResult")
     //Add container to main flow
-    main.appendChild(container);
+    main.appendChild(containerTree);
+    main.appendChild(containerGrass);
 
     //Change h3 content from UV to "UV-stråling rundt" + remove initial styling
-    let h3 = document.getElementById("uvTitle");
+    let h3 = document.getElementById("pollenTitle");
     h3.classList.remove("initialTitle");
     h3.innerText = `Pollenvarsel rundt ${city}:`;
 
     //Create top bar for UV index widget
-    const widgetTop = document.createElement("div");
-    widgetTop.setAttribute("class", "widgetTop");
+    const widgetTopTree = document.createElement("div");
+    widgetTopTree.setAttribute("class", "widgetTop");
+
+    const widgetTopGrass = document.createElement("div");
+    widgetTopGrass.setAttribute("class", "widgetTop");
 
     //Creates labels correlating to the correct infoblock section
-    const level = document.createElement("p");
-    level.setAttribute("class", "uvlevel");
+    const levelTree = document.createElement("p");
+    levelTree.setAttribute("class", "pollenlevel");
+
+    const levelGrass = document.createElement("p");
+    levelGrass.setAttribute("class", "pollenlevel");
     
     //Store level text values
-    let levelText;
-    const uvValues = {
+    let levelTreeText;
+    let levelGrassText;
+    const pollenValues = {
         low: "Ingen spredning",
         mid: "Beskjeden spredning",
         high: "Moderat spredning",
         xhigh: "Kraftig spredning",
         extreme: "Ekstrem spredning"
     };
+
+    ///////////////// TREE POLLEN ////////////////
+
 
     //Check that the data and index in return object actually exists or return error
     if(obj.DailyForecasts && obj.DailyForecasts.length && obj.DailyForecasts[0].AirAndPollen && obj.DailyForecasts[0].AirAndPollen.length > 5) {
@@ -130,7 +145,7 @@ const listUVResult = (obj, city) => {
         const barValue4 = document.createElement("div");
 
         //Add class for barContainer and bar
-        barContainer.setAttribute("class", "uvbar");
+        barContainer.setAttribute("class", "pollenbar");
         bar.setAttribute("class", "bar");
 
         //Add class .barvalue for the bar elements
@@ -141,51 +156,51 @@ const listUVResult = (obj, city) => {
         barValue4.setAttribute("class", "barvalue");
 
         //Import UV icon and add class
-        const uvIcon = new Image(24,24);
-        uvIcon.src = "img/ic-tree.svg";
-        uvIcon.setAttribute("class", "uvIcon");
+        const treeIcon = new Image(24,24);
+        treeIcon.src = "img/ic-tree.svg";
+        treeIcon.setAttribute("class", "pollenIcon");
 
         //Set UV-Index values + levelbadge value + Add color to bar and icon background
         if(value === 0) {
-            levelText = document.createTextNode(uvValues.low);
-            level.appendChild(levelText);
-            level.classList.add("blue")
+            levelTreeText = document.createTextNode(pollenValues.low);
+            levelTree.appendChild(levelTreeText);
+            levelTree.classList.add("blue")
             barValue0.classList.add("blue");
-            uvIcon.classList.add("blue");
+            treeIcon.classList.add("blue");
         } else if(value >= 1 && value <= 9){
-            levelText = document.createTextNode(uvValues.mid);
-            level.appendChild(levelText);
-            level.classList.add("green");
+            levelTreeText = document.createTextNode(pollenValues.mid);
+            levelTree.appendChild(levelTreeText);
+            levelTree.classList.add("green");
             barValue0.classList.add("green");
             barValue1.classList.add("green");
-            uvIcon.classList.add("green");
+            treeIcon.classList.add("green");
         } else if(value >= 10 && value <= 99) {
-            levelText = document.createTextNode(uvValues.high);
-            level.appendChild(levelText);
-            level.classList.add("yellow");
+            levelTreeText = document.createTextNode(pollenValues.high);
+            levelTree.appendChild(levelTreeText);
+            levelTree.classList.add("yellow");
             barValue0.classList.add("yellow");
             barValue1.classList.add("yellow");
             barValue2.classList.add("yellow");
-            uvIcon.classList.add("yellow");
+            treeIcon.classList.add("yellow");
         } else if(value >= 100 && value <= 999 ) {
-            levelText = document.createTextNode(uvValues.xhigh);
-            level.appendChild(levelText);
-            level.classList.add("orange");
+            levelTreeText = document.createTextNode(pollenValues.xhigh);
+            levelTree.appendChild(levelTreeText);
+            levelTree.classList.add("orange");
             barValue0.classList.add("orange");
             barValue1.classList.add("orange");
             barValue2.classList.add("orange");
             barValue3.classList.add("orange");
-            uvIcon.classList.add("orange");
+            treeIcon.classList.add("orange");
         } else {
-            levelText = document.createTextNode(uvValues.extreme);
-            level.appendChild(levelText);
-            level.classList.add("red");
+            levelTreeText = document.createTextNode(pollenValues.extreme);
+            levelTree.appendChild(levelTreeText);
+            levelTree.classList.add("red");
             barValue0.classList.add("red");
             barValue1.classList.add("red");
             barValue2.classList.add("red");
             barValue3.classList.add("red");
             barValue4.classList.add("red");
-            uvIcon.classList.add("red");
+            treeIcon.classList.add("red");
         };
 
         //Add all bars to the bar, and adding bar to barContainer.
@@ -199,34 +214,154 @@ const listUVResult = (obj, city) => {
 
 
         //Create UV Index top widget element with uv index and icon in rounded block
-        const uvIndexContainer = document.createElement("div");
-        uvIndexContainer.setAttribute("class", "uvIndexContainer")
+        const treeIndexContainer = document.createElement("div");
+        treeIndexContainer.setAttribute("class", "pollenIndexContainer")
 
         //Create h3 uv index value output
-        const uvIndex = document.createElement("h3");
-        uvIndex.setAttribute("id", "uvIndex");
+        const pollenIndex = document.createElement("h3");
+        pollenIndex.setAttribute("id", "pollenIndex");
         
         //Add UV index value to h3   
-        uvIndex.append("Trepollen " + value);
+        pollenIndex.append("Trepollen " + value);
 
         //Add index and icon to the rounded element
-        uvIndexContainer.appendChild(uvIcon);
-        uvIndexContainer.appendChild(uvIndex);
+        treeIndexContainer.appendChild(treeIcon);
+        treeIndexContainer.appendChild(pollenIndex);
 
         //Add widgetTop to uv index container
-        container.appendChild(widgetTop);
+        containerTree.appendChild(widgetTopTree);
 
         //Add the rounded icon+uvIndex block to the widgetTop
-        widgetTop.appendChild(uvIndexContainer);
+        widgetTopTree.appendChild(treeIndexContainer);
 
         //Add the level badge to the widgetTop;
-        widgetTop.appendChild(level);
+        widgetTopTree.appendChild(levelTree);
 
         //Add bar to container
-        container.appendChild(bar);
+        containerTree.appendChild(bar);
     } else {
         throw new Error("Did not receive any data for that location");
     }
+
+    
+    ///////////////// GRASS POLLEN ////////////////
+
+
+    //Check that the data and index in return object actually exists or return error
+    if(obj.DailyForecasts && obj.DailyForecasts.length && obj.DailyForecasts[0].AirAndPollen && obj.DailyForecasts[0].AirAndPollen.length > 5) {
+        //Data from return object
+        const value = obj.DailyForecasts[0].AirAndPollen[1].Value;
+        
+        //Create bar and container for UV varsel
+        const barContainer = document.createElement("div");
+        const bar = document.createElement("div");
+        const barValue0 = document.createElement("div");
+        const barValue1 = document.createElement("div");
+        const barValue2 = document.createElement("div");
+        const barValue3 = document.createElement("div");
+        const barValue4 = document.createElement("div");
+
+        //Add class for barContainer and bar
+        barContainer.setAttribute("class", "pollenbar");
+        bar.setAttribute("class", "bar");
+
+        //Add class .barvalue for the bar elements
+        barValue0.setAttribute("class", "barvalue");
+        barValue1.setAttribute("class", "barvalue");
+        barValue2.setAttribute("class", "barvalue");
+        barValue3.setAttribute("class", "barvalue");
+        barValue4.setAttribute("class", "barvalue");
+
+        //Import UV icon and add class
+        const grassIcon = new Image(24,24);
+        grassIcon.src = "img/ic-grass.svg";
+        grassIcon.setAttribute("class", "pollenIcon");
+
+        //Set UV-Index values + levelbadge value + Add color to bar and icon background
+        if(value === 0) {
+            levelGrassText = document.createTextNode(pollenValues.low);
+            levelGrass.appendChild(levelGrassText);
+            levelGrass.classList.add("blue")
+            barValue0.classList.add("blue");
+            grassIcon.classList.add("blue");
+        } else if(value >= 1 && value <= 9){
+            levelGrassText = document.createTextNode(pollenValues.mid);
+            levelGrass.appendChild(levelGrassText);
+            levelGrass.classList.add("green");
+            barValue0.classList.add("green");
+            barValue1.classList.add("green");
+            grassIcon.classList.add("green");
+        } else if(value >= 10 && value <= 99) {
+            levelGrassText = document.createTextNode(pollenValues.high);
+            levelGrass.appendChild(levelGrassText);
+            levelGrass.classList.add("yellow");
+            barValue0.classList.add("yellow");
+            barValue1.classList.add("yellow");
+            barValue2.classList.add("yellow");
+            grassIcon.classList.add("yellow");
+        } else if(value >= 100 && value <= 999 ) {
+            levelGrassText = document.createTextNode(pollenValues.xhigh);
+            levelGrass.appendChild(levelGrassText);
+            levelGrass.classList.add("orange");
+            barValue0.classList.add("orange");
+            barValue1.classList.add("orange");
+            barValue2.classList.add("orange");
+            barValue3.classList.add("orange");
+            grassIcon.classList.add("orange");
+        } else {
+            levelGrassText = document.createTextNode(pollenValues.extreme);
+            levelGrass.appendChild(levelGrassText);
+            levelGrass.classList.add("red");
+            barValue0.classList.add("red");
+            barValue1.classList.add("red");
+            barValue2.classList.add("red");
+            barValue3.classList.add("red");
+            barValue4.classList.add("red");
+            grassIcon.classList.add("red");
+        };
+
+        //Add all bars to the bar, and adding bar to barContainer.
+        bar.appendChild(barValue0);
+        bar.appendChild(barValue1);
+        bar.appendChild(barValue2);
+        bar.appendChild(barValue3);
+        bar.appendChild(barValue4);
+        barContainer.appendChild(bar);
+
+
+
+        //Create UV Index top widget element with uv index and icon in rounded block
+        const grassIndexContainer = document.createElement("div");
+        grassIndexContainer.setAttribute("class", "pollenIndexContainer")
+
+        //Create h3 uv index value output
+        const pollenIndex = document.createElement("h3");
+        pollenIndex.setAttribute("id", "pollenIndex");
+        
+        //Add UV index value to h3   
+        pollenIndex.append("Gresspollen " + value);
+
+        //Add index and icon to the rounded element
+        grassIndexContainer.appendChild(grassIcon);
+        grassIndexContainer.appendChild(pollenIndex);
+
+        //Add widgetTop to uv index container
+        containerGrass.appendChild(widgetTopGrass);
+
+        //Add the rounded icon+uvIndex block to the widgetTop
+        widgetTopGrass.appendChild(grassIndexContainer);
+
+        //Add the level badge to the widgetTop;
+        widgetTopGrass.appendChild(levelGrass);
+
+        //Add bar to container
+        containerGrass.appendChild(bar);
+    } else {
+        throw new Error("Did not receive any data for that location");
+    }
+
+
+    ////////////////// BEISKAMBROSIA /////////////////
 }
 
     
