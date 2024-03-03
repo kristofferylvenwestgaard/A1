@@ -220,6 +220,72 @@ const listPollenResult = (obj, city) => {
         //Create h3 uv index value output
         const pollenIndex = document.createElement("h3");
         pollenIndex.setAttribute("id", "pollenIndex");
+
+        //Pollencalendar descriptions
+        const pollenCalendar = {
+            jan: "I januar er det sjelden eller ingen spredning av trepollen",
+            feb: "I slutten av februar kan vi begynne å se spredning av Or og Hassel",
+            mar: "Mars er måneden der Or og Hassel har stor spredning, spesielt i Vest, Sør, Øst og Midt-Norge. I fjellet og Nord-Norge er det derimot ingen spredning.",
+            apr: "Vi er nå i april, Or og Hassel har nå vært tilstede i en drøy måned og begynner nå og avta. I midten av april er det vanlig at Salix og Bjørk begynner sin fremmarsj i Vest, Sør, Øst og Midt-Norge",
+            mai: "Mai måned har størst spredning av Bjørk og Salix, og dette merkes over hele landet",
+            juni: "Nå i juni begynner trepollen sesongen å se en ende. Bjørk har fremdeles litt spredning nord og sør, mens Salix spres jevnt over hele landet.",
+            juli: "Juli måned har meldt sin ankomst og nå ser vi kun litt spredning av Salix Nord-Norge og fjellet i Sør-Norge. Trepollen sesongen i Norge går mot slutten",
+            aug: "Trepollen sesongen i Norge er stort sett over nå, og ny sesong er ikke ventet før i februar/mars neste år.",
+            sep: "Ingen spredning av trepollen",
+            okt: "Ingen spredning av trepollen",
+            nov: "Ingen spredning av trepollen",
+            des: "Ingen spredning av trepollen",
+        };
+
+        //Create description area below bar 
+        const descriptionContainer = document.createElement("div");
+        const description = document.createElement("p");
+        description.setAttribute("class", "pollenCalendarDesc");
+        const date = new Date();
+        const currentMonth = date.getMonth()+1;
+
+        switch (currentMonth) {
+            case 1:
+                description.append(pollenCalendar.jan);
+                break;
+            case 2:
+                description.append(pollenCalendar.feb);
+                break;
+            case 3:
+                description.append(pollenCalendar.mar);
+                break;
+            case 4:
+                description.append(pollenCalendar.apr);
+                break;
+            case 5:
+                description.append(pollenCalendar.mai);
+                break;
+            case 6:
+                description.append(pollenCalendar.jun);
+                break;
+            case 7:
+                description.append(pollenCalendar.jul);
+                break;
+            case 8:
+                description.append(pollenCalendar.aug);
+                break;
+            case 9:
+                description.append(pollenCalendar.sep);
+                break;
+            case 10:
+                description.append(pollenCalendar.okt);
+                break;
+            case 11:
+                description.append(pollenCalendar.nov);
+                break;
+            case 12:
+                description.append(pollenCalendar.des);
+                break;
+            default:
+                break;
+        }
+
+        descriptionContainer.appendChild(description);
         
         //Add UV index value to h3   
         pollenIndex.append("Trepollen " + value);
@@ -239,6 +305,10 @@ const listPollenResult = (obj, city) => {
 
         //Add bar to container
         containerTree.appendChild(bar);
+
+        //Add pollendescritption to container
+        containerTree.appendChild(descriptionContainer);
+        
     } else {
         throw new Error("Did not receive any data for that location");
     }

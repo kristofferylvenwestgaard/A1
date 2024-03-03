@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex,follow" />
+    <title>Pollenvarsel</title>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5F2S7HPJ');</script>
+    <!-- End Google Tag Manager -->
+    <style>
+        /* Main css */
+
+        body {
+            height: 400vh;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1260px;
+            width: 100%;
+            margin: 0 auto;
+            scroll-behavior: smooth;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .gap-2 {
+            gap: 2rem !important;
+        }
+
+        .flex-1 {
+            flex: 1;
+        }
+
+        .v-center {
+            align-items: center;
+        }
+
+        .gap-sm {
+            gap: .75rem;
+        }
+
+        .gap-md {
+            gap: 1rem;
+        }
+
+        .top-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+
+        p {
+            font-size: 1rem;
+            line-height: 150%;
+            margin: .5rem 0 1rem 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 3rem 0 2rem 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 0 0 1.5rem 0;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-top: 0;
+        }
+
+        button {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: .85rem;
+        }
+
+        a {
+            color: #000;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .cta {
+            display: flex;
+            gap: .5rem;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            padding: .65rem 1rem;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            margin-top: .5rem;
+        }
+
+        .secondaryOutline {
+            border: 2px solid #0d2880;
+            background-color: transparent;
+            color: #0d2880;
+            max-height: 44.5px;
+        }
+
+        .fullwidth {
+            width: 100%;
+        }
+
+        .primary {
+            background-color: #1b6613;
+        }
+
+        .secondary {
+            background-color: #0d2880;
+        }
+
+        .lightGreen {
+            background-color: #F3FCF2;
+        }
+
+        .lightGrey {
+            background-color: #F7F7F8;
+        }
+
+        /* Sticky */
+        .sticky {
+            position: fixed;
+            bottom: 0;
+            height: auto;
+            width: 100%;
+            background-color: #ededed;
+            padding: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Container header-revscroll top margin */
+        .headerRevscroll {
+            margin-top: 80px;
+        }
+
+        .input {
+            padding: 0 1rem;
+            height: 50px;
+            border-radius: 6px;
+            border: 1px solid #d6d6d6;
+            font-size: 1rem;
+        }
+
+        .btnForm {
+            padding: 0 1rem;
+            height: 50px;
+            border-radius: 6px;
+            background-color: #1b6613;
+            color: #fff;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btnForm:hover {
+            background-color: #264122;
+        }
+
+        .borderRadius {
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .borderBlock {
+            display: flex;
+            flex-direction: column;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border: 1px solid #d6d6d6;
+        }
+
+        .noPadding {
+            padding: 0;
+        }
+
+        .noMargin {
+            margin: 0 !important;
+        }
+
+        .p-24 {
+            padding: 3rem;
+        }
+
+        .flex-1 {
+            flex: 1;
+        }
+
+        .textCenter {
+            text-align: center;
+        }
+
+        .innerContainer {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #d6d6d6;
+            border-collapse: collapse;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 1rem;
+        }
+
+        .inline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .label {
+            padding: .5rem;
+            font-size: .875rem;
+            font-weight: 500;
+            margin-top: 0;
+        }
+
+        .formLabel {
+            font-size: .75rem;
+            color: #595959;
+        }
+
+        .error {
+            color: #CA3622;
+            font-weight: 600;
+        }
+
+        .input.error {
+            border: 1px solid #CA3622;
+            font-weight: 400;
+        }
+
+        .input.error:active,
+        .input.error:focus {
+            color: #000;
+        }
+
+        .locInput {
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+            border: none;
+            padding: 0;
+            flex: 1;
+        }
+
+        .h-370 {
+            height: 370px;
+            overflow: hidden;
+        }
+
+        .mb-24 {
+            margin-bottom: 24px !important;
+        }
+
+        .mb-64 {
+            margin-bottom: 4rem !important;
+        }
+
+        .cols {
+            display: flex;
+            margin-bottom: 3rem;
+            gap: 2rem;
+        }
+
+        .noGap {
+            gap: 0;
+        }
+
+        .queryResult {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            border-radius: 6px;
+        }
+
+        .noBorder {
+            border: none;
+        }
+
+        .blue {
+            background-color: #f0f8fd;
+        }
+
+        .pollenForm {
+            display: flex;
+            width: 100%;
+            height: auto;
+            gap: 1rem;
+        }
+
+        .leftBlock {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            gap: 1rem;
+            /* margin-bottom: 3.5rem; */
+        }
+
+        .rightBlock {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            gap: 1rem;
+        }
+
+        .halfWidth {
+            width: 50%;
+        }
+
+        #pollenIndex,
+        #pollenTitle {
+            margin-bottom: 0;
+            line-height: 140%;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 10px;
+            margin-bottom: .5rem;
+        }
+
+        .green {
+            background-color: #ADDA9A !important;
+        }
+
+        .yellow {
+            background-color: #ffe164 !important;
+        }
+
+        .orange {
+            background-color: #FF8F4D !important;
+        }
+
+        .red {
+            background-color: #F05E4A !important;
+        }
+
+        .blue {
+            background-color: #C2E5F8 !important;
+        }
+
+        .grey {
+            background-color: #F7F7F8 !important;
+        }
+
+        .pollenIndexContainer {
+            display: flex;
+            gap: .75rem;
+            align-items: center;
+            margin-right: auto;
+            border-radius: 100px;
+            padding-right: 1rem;
+            background-color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .pollenResult {
+            display: flex;
+            flex-direction: column;
+            margin: 1.5rem 0 0 0;
+            gap: .5rem;
+            background-color: #F7F7F8;
+            padding: 2rem;
+            border-radius: 6px;
+        }
+
+        .pollenPic {
+            margin-top: -200px;
+        }
+
+        .pollenRightColPic {
+            height: 636px;
+            object-fit: cover;
+            object-position: 50% 50%;
+            border-radius: 6px;
+        }
+
+        .pollenlevel {
+            font-size: .875rem;
+            font-weight: 500;
+        }
+
+        #pollenIndex {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .pollenIcon {
+            padding: .5rem;
+            border-radius: 100px;
+        }
+
+        .pollenlevel {
+            margin-left: auto;
+            margin-bottom: 0 !important;
+            padding: .25rem .5rem;
+            border-radius: 6px;
+        }
+
+        .widgetTop {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .pollenbar {
+            width: 100%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+        }
+
+        .bar {
+            height: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .barvalue {
+            flex: 1;
+            background-color: #d6d6d6;
+            border-radius: 4px;
+        }
+
+        .initialTitle {
+            padding: 14rem 2rem;
+            background-color: #F0F8FD;
+            border-radius: 6px;
+        }
+
+        .pollenCalendarDesc {
+            margin: 1rem 0 0 0;
+        }
+
+        @media only screen and (max-width: 800px) {
+
+            .input {
+                flex: auto;
+            }
+
+            .borderBlock {
+                padding: 1rem
+            }
+
+            .rightBlock {
+                width: 100%;
+            }
+
+            .leftBlock {
+                width: 100%;
+                flex-direction: column;
+                margin: 0;
+            }
+
+            .pollenForm {
+                width: 100%;
+                flex-direction: column;
+                margin: 0 0 0 0;
+            }
+
+            .cols {
+                flex-direction: column;
+                margin-bottom: 0;
+            }
+
+            .flex-reverse {
+                flex-direction: column-reverse;
+            }
+
+            .h-370 {
+                height: auto;
+            }
+
+            .p-24 {
+                padding: 1rem;
+            }
+
+            .noPadding {
+                padding: 0 !important;
+            }
+
+            .pollenPic {
+                margin-top: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .imgContainer {
+                height: 250px;
+                object-fit: cover;
+            }
+
+            .halfWidth {
+                width: 100%;
+            }
+
+            .pollenForm {
+                height: auto;
+            }
+
+            .pollenResult {
+                padding: 1rem 1rem 1.5rem 1rem;
+            }
+
+            .noGap {
+                gap: 1rem;
+            }
+
+            .bar {
+                height: .75rem;
+                gap: 0.25rem;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            .hidden {
+                display: none !important;
+            }
+
+            .initialTitle {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main" class="container ">
+        <div class="innerContainer">
+            <div class="mb-64">
+                <h1>Pollenvarsel – sjekk spredningen hos deg</h1>
+                <p>Gjennomsnittlig starter pollensesongen i Norge i løpet av februar måned. Or- og hasselpollen er først
+                    ut, og spredningen starter ofte først i Vest-Norge. <br>
+                    Tidspunktet for sesongstart avhenger i stor grad av vær og temperatur; en varm vinter fører til
+                    tidlig spredning, mens en kald vinter medfører en senere start. </p>
+            </div>
+            <!-- UV Varsel -->
+            <div class="flex cols gap-2 mb-64">
+                <div class="leftBlock gap-2">
+                    <h2 class="noMargin">Se pollenvarselet i din nærmeste by</h2>
+                    <form class="pollenForm" id="searchPollen">
+                        <fieldset class="locInput">
+                            <input class="input" id="inp" type="text" name="search" placeholder="Skriv inn bynavn" />
+                            <label for="inp" id="inpLabel" class="formLabel">Søk etter din nærmeste by</label>
+                        </fieldset>
+                        <input class="btnForm" data-gtm-event="iframe" data-gtm-category="ux" data-gtm-action="button"
+                            data-gtm-label="pollen-varsel" type="submit" name="submit" value="Se varsel" />
+                    </form>
+                    <div id="queryResult" class="queryResult">
+                        <h3 id="pollenTitle" class="textCenter initialTitle">Søk etter og se pollenvarsel for ditt
+                            nærområde.</h3>
+                    </div>
+                </div>
+                <div class="rightBlock hidden">
+                    <img class="pollenRightColPic" src="img/sunset3.jpg" alt="sun" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //Store form data
+        const form = document.forms["searchPollen"];
+        let containerTree = false;
+        let containerGrass = false;
+
+        //atob("YkJJTFBqOGV5ME5TNjNqWUdsQ1l6UVFwcUJ0NWFyYTk=");
+        const peloton = "bBILPj8ey0NS63jYGlCYzQQpqBt5ara9";
+
+        //HandleSubmit event on location UV Index form
+        const submitSearch = async (e) => {
+            e.preventDefault();
+            try {
+                const city = form.search.value;
+                //console.log(city);
+                const locKey = await getLocationKey(city);
+                //console.log(locKey);
+                const pollen = await getPollen(locKey);
+                listPollenResult(pollen, city);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        //Execute API call on form submit
+        form.addEventListener("submit", submitSearch)
+
+        //Get location key from search query
+        const getLocationKey = async (searchTerm) => {
+            //Store form input for location
+            const location = searchTerm;
+            //console.log(location);
+
+            //Endpoint to location key for search input location
+            const endpoint = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${peloton}&q=${location}&language=no&details=true`;
+            try {
+                const response = await fetch(endpoint);
+                if (response.ok) {
+                    const result = await response.json();
+                    return result;
+                }
+            } catch (error) {
+                throw new Error("Something failed");
+            }
+        }
+
+        //Get UV Index for location "c"
+        const getPollen = async (c) => {
+            let locationKey;
+            const input = document.getElementById("inp");
+            const inputLabel = document.getElementById("inpLabel");
+            console.log(c);
+            if (c.length > 0) {
+                if (inputLabel.classList.contains("error")) {
+                    input.classList.remove("error");
+                    inputLabel.classList.remove("error");
+                    inputLabel.innerHTML = "Søk etter din nærmeste by";
+                }
+                locationKey = c[0].Key;
+                console.log(locationKey);
+                const endpoint = `https://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=${peloton}&language=no&details=true&metric=true`;
+                try {
+                    const response = await fetch(endpoint);
+                    if (response.ok) {
+                        const result = await response.json();
+                        return result;
+                    }
+                } catch (err) {
+                    throw new Error("Something failed");
+                }
+            } else {
+                //Input validation on form input - frontend feedback + style
+                const error = "Fant ikke stedet du søkte etter. Prøv nærmeste by. f.eks Oslo";
+                inputLabel.classList.add("error");
+                inputLabel.innerHTML = error;
+                input.classList.add("error");
+                throw new Error(error);
+            }
+        }
+
+        //Show UV listing for location
+        const listPollenResult = (obj, city) => {
+            let main = document.getElementById("queryResult");
+
+            //Prevent doubling up the frontend output
+            if (containerTree || containerGrass) {
+                main.removeChild(containerTree);
+                main.removeChild(containerGrass);
+            }
+
+            //Create container for API call result
+            containerTree = document.createElement("div");
+            containerGrass = document.createElement("div");
+            //Add class to container
+            containerTree.setAttribute("class", "pollenResult")
+            containerGrass.setAttribute("class", "pollenResult")
+            //Add container to main flow
+            main.appendChild(containerTree);
+            main.appendChild(containerGrass);
+
+            //Change h3 content from UV to "UV-stråling rundt" + remove initial styling
+            let h3 = document.getElementById("pollenTitle");
+            h3.classList.remove("initialTitle");
+            h3.innerText = `Pollenvarsel rundt ${city}:`;
+
+            //Create top bar for UV index widget
+            const widgetTopTree = document.createElement("div");
+            widgetTopTree.setAttribute("class", "widgetTop");
+
+            const widgetTopGrass = document.createElement("div");
+            widgetTopGrass.setAttribute("class", "widgetTop");
+
+            //Creates labels correlating to the correct infoblock section
+            const levelTree = document.createElement("p");
+            levelTree.setAttribute("class", "pollenlevel");
+
+            const levelGrass = document.createElement("p");
+            levelGrass.setAttribute("class", "pollenlevel");
+
+            //Store level text values
+            let levelTreeText;
+            let levelGrassText;
+            const pollenValues = {
+                low: "Ingen spredning",
+                mid: "Beskjeden spredning",
+                high: "Moderat spredning",
+                xhigh: "Kraftig spredning",
+                extreme: "Ekstrem spredning"
+            };
+
+            ///////////////// TREE POLLEN ////////////////
+
+
+            //Check that the data and index in return object actually exists or return error
+            if (obj.DailyForecasts && obj.DailyForecasts.length && obj.DailyForecasts[0].AirAndPollen && obj.DailyForecasts[0].AirAndPollen.length > 5) {
+                //Data from return object
+                const value = obj.DailyForecasts[0].AirAndPollen[4].Value;
+
+                //Create bar and container for UV varsel
+                const barContainer = document.createElement("div");
+                const bar = document.createElement("div");
+                const barValue0 = document.createElement("div");
+                const barValue1 = document.createElement("div");
+                const barValue2 = document.createElement("div");
+                const barValue3 = document.createElement("div");
+                const barValue4 = document.createElement("div");
+
+                //Add class for barContainer and bar
+                barContainer.setAttribute("class", "pollenbar");
+                bar.setAttribute("class", "bar");
+
+                //Add class .barvalue for the bar elements
+                barValue0.setAttribute("class", "barvalue");
+                barValue1.setAttribute("class", "barvalue");
+                barValue2.setAttribute("class", "barvalue");
+                barValue3.setAttribute("class", "barvalue");
+                barValue4.setAttribute("class", "barvalue");
+
+                //Import UV icon and add class
+                const treeIcon = new Image(24, 24);
+                treeIcon.src = "img/ic-tree.svg";
+                treeIcon.setAttribute("class", "pollenIcon");
+
+                //Set UV-Index values + levelbadge value + Add color to bar and icon background
+                if (value === 0) {
+                    levelTreeText = document.createTextNode(pollenValues.low);
+                    levelTree.appendChild(levelTreeText);
+                    levelTree.classList.add("blue")
+                    barValue0.classList.add("blue");
+                    treeIcon.classList.add("blue");
+                } else if (value >= 1 && value <= 9) {
+                    levelTreeText = document.createTextNode(pollenValues.mid);
+                    levelTree.appendChild(levelTreeText);
+                    levelTree.classList.add("green");
+                    barValue0.classList.add("green");
+                    barValue1.classList.add("green");
+                    treeIcon.classList.add("green");
+                } else if (value >= 10 && value <= 99) {
+                    levelTreeText = document.createTextNode(pollenValues.high);
+                    levelTree.appendChild(levelTreeText);
+                    levelTree.classList.add("yellow");
+                    barValue0.classList.add("yellow");
+                    barValue1.classList.add("yellow");
+                    barValue2.classList.add("yellow");
+                    treeIcon.classList.add("yellow");
+                } else if (value >= 100 && value <= 999) {
+                    levelTreeText = document.createTextNode(pollenValues.xhigh);
+                    levelTree.appendChild(levelTreeText);
+                    levelTree.classList.add("orange");
+                    barValue0.classList.add("orange");
+                    barValue1.classList.add("orange");
+                    barValue2.classList.add("orange");
+                    barValue3.classList.add("orange");
+                    treeIcon.classList.add("orange");
+                } else {
+                    levelTreeText = document.createTextNode(pollenValues.extreme);
+                    levelTree.appendChild(levelTreeText);
+                    levelTree.classList.add("red");
+                    barValue0.classList.add("red");
+                    barValue1.classList.add("red");
+                    barValue2.classList.add("red");
+                    barValue3.classList.add("red");
+                    barValue4.classList.add("red");
+                    treeIcon.classList.add("red");
+                };
+
+                //Add all bars to the bar, and adding bar to barContainer.
+                bar.appendChild(barValue0);
+                bar.appendChild(barValue1);
+                bar.appendChild(barValue2);
+                bar.appendChild(barValue3);
+                bar.appendChild(barValue4);
+                barContainer.appendChild(bar);
+
+
+
+                //Create UV Index top widget element with uv index and icon in rounded block
+                const treeIndexContainer = document.createElement("div");
+                treeIndexContainer.setAttribute("class", "pollenIndexContainer")
+
+                //Create h3 uv index value output
+                const pollenIndex = document.createElement("h3");
+                pollenIndex.setAttribute("id", "pollenIndex");
+
+                //Pollencalendar descriptions
+                const pollenCalendar = {
+                    jan: "I januar er det sjelden eller ingen spredning av trepollen",
+                    feb: "I slutten av februar kan vi begynne å se spredning av Or og Hassel",
+                    mar: "Mars er måneden der Or og Hassel har stor spredning, spesielt i Vest, Sør, Øst og Midt-Norge. I fjellet og Nord-Norge er det derimot ingen spredning.",
+                    apr: "Vi er nå i april, Or og Hassel har nå vært tilstede i en drøy måned og begynner nå og avta. I midten av april er det vanlig at Salix og Bjørk begynner sin fremmarsj i Vest, Sør, Øst og Midt-Norge",
+                    mai: "Mai måned har størst spredning av Bjørk og Salix, og dette merkes over hele landet",
+                    juni: "Nå i juni begynner trepollen sesongen å se en ende. Bjørk har fremdeles litt spredning nord og sør, mens Salix spres jevnt over hele landet.",
+                    juli: "Juli måned har meldt sin ankomst og nå ser vi kun litt spredning av Salix Nord-Norge og fjellet i Sør-Norge. Trepollen sesongen i Norge går mot slutten",
+                    aug: "Trepollen sesongen i Norge er stort sett over nå, og ny sesong er ikke ventet før i februar/mars neste år.",
+                    sep: "Ingen spredning av trepollen",
+                    okt: "Ingen spredning av trepollen",
+                    nov: "Ingen spredning av trepollen",
+                    des: "Ingen spredning av trepollen",
+                };
+
+                //Create description area below bar 
+                const descriptionContainer = document.createElement("div");
+                const description = document.createElement("p");
+                description.setAttribute("class", "pollenCalendarDesc");
+                const date = new Date();
+                const currentMonth = date.getMonth() + 1;
+
+                switch (currentMonth) {
+                    case 1:
+                        description.append(pollenCalendar.jan);
+                        break;
+                    case 2:
+                        description.append(pollenCalendar.feb);
+                        break;
+                    case 3:
+                        description.append(pollenCalendar.mar);
+                        break;
+                    case 4:
+                        description.append(pollenCalendar.apr);
+                        break;
+                    case 5:
+                        description.append(pollenCalendar.mai);
+                        break;
+                    case 6:
+                        description.append(pollenCalendar.jun);
+                        break;
+                    case 7:
+                        description.append(pollenCalendar.jul);
+                        break;
+                    case 8:
+                        description.append(pollenCalendar.aug);
+                        break;
+                    case 9:
+                        description.append(pollenCalendar.sep);
+                        break;
+                    case 10:
+                        description.append(pollenCalendar.okt);
+                        break;
+                    case 11:
+                        description.append(pollenCalendar.nov);
+                        break;
+                    case 12:
+                        description.append(pollenCalendar.des);
+                        break;
+                    default:
+                        break;
+                }
+
+                descriptionContainer.appendChild(description);
+
+                //Add UV index value to h3   
+                pollenIndex.append("Trepollen " + value);
+
+                //Add index and icon to the rounded element
+                treeIndexContainer.appendChild(treeIcon);
+                treeIndexContainer.appendChild(pollenIndex);
+
+                //Add widgetTop to uv index container
+                containerTree.appendChild(widgetTopTree);
+
+                //Add the rounded icon+uvIndex block to the widgetTop
+                widgetTopTree.appendChild(treeIndexContainer);
+
+                //Add the level badge to the widgetTop;
+                widgetTopTree.appendChild(levelTree);
+
+                //Add bar to container
+                containerTree.appendChild(bar);
+
+                //Add pollendescritption to container
+                containerTree.appendChild(descriptionContainer);
+
+            } else {
+                throw new Error("Did not receive any data for that location");
+            }
+
+
+            ///////////////// GRASS POLLEN ////////////////
+
+
+            //Check that the data and index in return object actually exists or return error
+            if (obj.DailyForecasts && obj.DailyForecasts.length && obj.DailyForecasts[0].AirAndPollen && obj.DailyForecasts[0].AirAndPollen.length > 5) {
+                //Data from return object
+                const value = obj.DailyForecasts[0].AirAndPollen[1].Value;
+
+                //Create bar and container for UV varsel
+                const barContainer = document.createElement("div");
+                const bar = document.createElement("div");
+                const barValue0 = document.createElement("div");
+                const barValue1 = document.createElement("div");
+                const barValue2 = document.createElement("div");
+                const barValue3 = document.createElement("div");
+                const barValue4 = document.createElement("div");
+
+                //Add class for barContainer and bar
+                barContainer.setAttribute("class", "pollenbar");
+                bar.setAttribute("class", "bar");
+
+                //Add class .barvalue for the bar elements
+                barValue0.setAttribute("class", "barvalue");
+                barValue1.setAttribute("class", "barvalue");
+                barValue2.setAttribute("class", "barvalue");
+                barValue3.setAttribute("class", "barvalue");
+                barValue4.setAttribute("class", "barvalue");
+
+                //Import UV icon and add class
+                const grassIcon = new Image(24, 24);
+                grassIcon.src = "img/ic-grass.svg";
+                grassIcon.setAttribute("class", "pollenIcon");
+
+                //Set UV-Index values + levelbadge value + Add color to bar and icon background
+                if (value === 0) {
+                    levelGrassText = document.createTextNode(pollenValues.low);
+                    levelGrass.appendChild(levelGrassText);
+                    levelGrass.classList.add("blue")
+                    barValue0.classList.add("blue");
+                    grassIcon.classList.add("blue");
+                } else if (value >= 1 && value <= 9) {
+                    levelGrassText = document.createTextNode(pollenValues.mid);
+                    levelGrass.appendChild(levelGrassText);
+                    levelGrass.classList.add("green");
+                    barValue0.classList.add("green");
+                    barValue1.classList.add("green");
+                    grassIcon.classList.add("green");
+                } else if (value >= 10 && value <= 99) {
+                    levelGrassText = document.createTextNode(pollenValues.high);
+                    levelGrass.appendChild(levelGrassText);
+                    levelGrass.classList.add("yellow");
+                    barValue0.classList.add("yellow");
+                    barValue1.classList.add("yellow");
+                    barValue2.classList.add("yellow");
+                    grassIcon.classList.add("yellow");
+                } else if (value >= 100 && value <= 999) {
+                    levelGrassText = document.createTextNode(pollenValues.xhigh);
+                    levelGrass.appendChild(levelGrassText);
+                    levelGrass.classList.add("orange");
+                    barValue0.classList.add("orange");
+                    barValue1.classList.add("orange");
+                    barValue2.classList.add("orange");
+                    barValue3.classList.add("orange");
+                    grassIcon.classList.add("orange");
+                } else {
+                    levelGrassText = document.createTextNode(pollenValues.extreme);
+                    levelGrass.appendChild(levelGrassText);
+                    levelGrass.classList.add("red");
+                    barValue0.classList.add("red");
+                    barValue1.classList.add("red");
+                    barValue2.classList.add("red");
+                    barValue3.classList.add("red");
+                    barValue4.classList.add("red");
+                    grassIcon.classList.add("red");
+                };
+
+                //Add all bars to the bar, and adding bar to barContainer.
+                bar.appendChild(barValue0);
+                bar.appendChild(barValue1);
+                bar.appendChild(barValue2);
+                bar.appendChild(barValue3);
+                bar.appendChild(barValue4);
+                barContainer.appendChild(bar);
+
+
+
+                //Create UV Index top widget element with uv index and icon in rounded block
+                const grassIndexContainer = document.createElement("div");
+                grassIndexContainer.setAttribute("class", "pollenIndexContainer")
+
+                //Create h3 uv index value output
+                const pollenIndex = document.createElement("h3");
+                pollenIndex.setAttribute("id", "pollenIndex");
+
+                //Add UV index value to h3   
+                pollenIndex.append("Gresspollen " + value);
+
+                //Add index and icon to the rounded element
+                grassIndexContainer.appendChild(grassIcon);
+                grassIndexContainer.appendChild(pollenIndex);
+
+                //Add widgetTop to uv index container
+                containerGrass.appendChild(widgetTopGrass);
+
+                //Add the rounded icon+uvIndex block to the widgetTop
+                widgetTopGrass.appendChild(grassIndexContainer);
+
+                //Add the level badge to the widgetTop;
+                widgetTopGrass.appendChild(levelGrass);
+
+                //Add bar to container
+                containerGrass.appendChild(bar);
+            } else {
+                throw new Error("Did not receive any data for that location");
+            }
+
+
+            ////////////////// BEISKAMBROSIA /////////////////
+        }
+
+    </script>
+</body>
+
+</html>

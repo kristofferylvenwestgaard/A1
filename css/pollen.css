@@ -112,9 +112,9 @@
 }
 
 .pollenRightColPic {
-    height: 420px;
+    height: 636px;
     object-fit: cover;
-    object-position: 0% 50%;
+    object-position: 50% 50%;
     border-radius: 6px;
 }
 
@@ -168,9 +168,13 @@
 }
 
 .initialTitle {
-    padding: 4rem 2rem;
+    padding: 14rem 2rem;
     background-color: #F0F8FD;
     border-radius: 6px;
+}
+
+.pollenCalendarDesc {
+    margin: 1rem 0 0 0;
 }
 
 @media only screen and (max-width: 800px) {
