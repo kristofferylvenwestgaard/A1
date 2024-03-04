@@ -112,7 +112,7 @@
 }
 
 .pollenRightColPic {
-    height: 636px;
+    height: 870px;
     object-fit: cover;
     object-position: 50% 50%;
     border-radius: 6px;
@@ -168,13 +168,34 @@
 }
 
 .initialTitle {
-    padding: 14rem 2rem;
+    padding: 21rem 2rem;
     background-color: #F0F8FD;
     border-radius: 6px;
 }
 
 .pollenCalendarDesc {
     margin: 1rem 0 0 0;
+}
+
+.dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100px;
+}
+
+.list {
+    margin: 2rem 0 0 1rem;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    row-gap: .5rem;
+}
+
+li {
+    display: inline-flex;
+    gap: .5rem;
 }
 
 @media only screen and (max-width: 800px) {

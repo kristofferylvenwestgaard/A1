@@ -2,9 +2,10 @@
 const form = document.forms["searchPollen"];
 let containerTree = false;
 let containerGrass = false;
+let levelList = false;
 
 //atob("YkJJTFBqOGV5ME5TNjNqWUdsQ1l6UVFwcUJ0NWFyYTk=");
-const peloton = "bBILPj8ey0NS63jYGlCYzQQpqBt5ara9";
+const peloton = "fTy8nd6jGiaMynRJsihnSGHDHkD5PUoN";
 
 //HandleSubmit event on location UV Index form
 const submitSearch = async (e) => {
@@ -82,9 +83,10 @@ const listPollenResult = (obj, city) => {
     let main = document.getElementById("queryResult");
 
     //Prevent doubling up the frontend output
-    if(containerTree || containerGrass) {
+    if(containerTree || containerGrass || levelList) {
         main.removeChild(containerTree);
         main.removeChild(containerGrass);
+        main.removeChild(levelList);
     }
 
     //Create container for API call result
@@ -127,8 +129,39 @@ const listPollenResult = (obj, city) => {
         extreme: "Ekstrem spredning"
     };
 
-    ///////////////// TREE POLLEN ////////////////
+    const pollenValuesDetailed = {
+        low: "Ingen spredning (0)",
+        mid: "Beskjeden spredning (1-9)",
+        high: "Moderat spredning (10-99)",
+        xhigh: "Kraftig spredning (100-999)",
+        extreme: "Ekstrem spredning (1000+)"
+    };
 
+    //ABOUT THE LEVELS
+    const levelsDescription = document.createElement("div");
+    levelList = document.createElement("ul");
+    levelList.setAttribute("class", "list");
+    const colors = {
+        0: "blue",
+        1: "green",
+        2: "yellow",
+        3: "orange",
+        4: "red"
+    }
+
+    let count = 0;
+    for(const level in pollenValues) {
+        const item = document.createElement("li");
+        const dot = document.createElement("div");
+        dot.setAttribute("class", `${colors[count]} dot`);
+        count++
+        item.append(dot,`${pollenValuesDetailed[level]}`);
+        levelList.append(item);
+    }
+    console.log(levelList);
+
+
+    ///////////////// TREE POLLEN ////////////////
 
     //Check that the data and index in return object actually exists or return error
     if(obj.DailyForecasts && obj.DailyForecasts.length && obj.DailyForecasts[0].AirAndPollen && obj.DailyForecasts[0].AirAndPollen.length > 5) {
@@ -308,6 +341,8 @@ const listPollenResult = (obj, city) => {
 
         //Add pollendescritption to container
         containerTree.appendChild(descriptionContainer);
+
+        
         
     } else {
         throw new Error("Did not receive any data for that location");
@@ -426,6 +461,8 @@ const listPollenResult = (obj, city) => {
 
         //Add bar to container
         containerGrass.appendChild(bar);
+
+        main.append(levelList);
     } else {
         throw new Error("Did not receive any data for that location");
     }

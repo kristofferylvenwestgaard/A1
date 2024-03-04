@@ -891,6 +891,39 @@
                         break;
                 }
 
+                //ABOUT THE LEVELS
+                const levelsDescription = document.createElement("div");
+                const levelList = document.createElement("ul");
+                const colors = {
+                    0: "blue",
+                    1: "green",
+                    2: "yellow",
+                    3: "orange",
+                    4: "red"
+                }
+
+                for(const level in pollenValues) {
+                    const item = document.createElement("li");
+                    item.append(`${pollenValues[level]}`);
+                    const dot = document.createElement("div");
+                    dot.setAttribute("class", "dot");
+                    for(const color in colors) {
+                        dot.setAttribute("class", `${color}`);
+                    }
+                    levelList.append(dot,item);
+
+                }
+                console.log(levelList);
+                
+                // const dot1 = document.createElement("div");
+
+                // l1.append(pollenValues.low);
+                // l2.append(pollenValues.mid);
+                // l3.append(pollenValues.high);
+                // l4.append(pollenValues.xhigh);
+                // l5.append(pollenValues.extreme);
+                // dot1.setAttribute("class", "blue, dot");
+
                 descriptionContainer.appendChild(description);
 
                 //Add UV index value to h3   
@@ -914,6 +947,8 @@
 
                 //Add pollendescritption to container
                 containerTree.appendChild(descriptionContainer);
+
+
 
             } else {
                 throw new Error("Did not receive any data for that location");
